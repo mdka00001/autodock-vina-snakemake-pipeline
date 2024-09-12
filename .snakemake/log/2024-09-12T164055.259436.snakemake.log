@@ -1,0 +1,8 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+MissingInputException in rule prepare_protein in file /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py, line 23:
+Missing input files for rule prepare_protein:
+    output: output/proteins/zAR-alphafold_Conformer3D_CID.pdbqt
+    wildcards: protein=zAR-alphafold_Conformer3D_CID
+    affected files:
+        data/proteins/zAR-alphafold_Conformer3D_CID.pdb

@@ -1,0 +1,57 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                       1
+extract_grid_center        1
+get_grid_center            1
+prepare_ligand             1
+prepare_protein            1
+total                      6
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Thu Sep 12 17:30:00 2024]
+localrule prepare_ligand:
+    input: data/ligands/5757.mol2
+    output: output/ligands_prep/5757.pdbqt
+    jobid: 3
+    reason: Missing output files: output/ligands_prep/5757.pdbqt
+    wildcards: ligand=5757
+    resources: tmpdir=/tmp
+
+
+[Thu Sep 12 17:30:00 2024]
+localrule prepare_protein:
+    input: data/proteins/zAR.pdb
+    output: output/proteins_prep/zAR.pdbqt
+    jobid: 2
+    reason: Missing output files: output/proteins_prep/zAR.pdbqt
+    wildcards: protein=zAR
+    resources: tmpdir=/tmp
+
+[Thu Sep 12 17:30:00 2024]
+Error in rule prepare_ligand:
+    jobid: 3
+    input: data/ligands/5757.mol2
+    output: output/ligands_prep/5757.pdbqt
+    shell:
+        
+        prepare_ligand4.py -l data/ligands/5757.mol2 -o output/ligands_prep/5757.pdbqt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Sep 12 17:30:01 2024]
+Finished job 2.
+1 of 6 steps (17%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-12T173000.581909.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,0 +1,5 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+WildcardError in rule get_grid_center in file /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py, line 45:
+Wildcards in input files cannot be determined from output files: (rule get_grid_center, line 82, /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py)
+'ligand'

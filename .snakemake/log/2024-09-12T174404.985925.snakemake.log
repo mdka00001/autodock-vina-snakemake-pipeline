@@ -1,0 +1,35 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                       1
+extract_grid_center        1
+get_grid_center            1
+total                      4
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Sep 12 17:44:05 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/zAR.pdbqt
+    output: output/proteins_gpf/zAR.gpf
+    jobid: 5
+    reason: Missing output files: output/proteins_gpf/zAR.gpf
+    wildcards: protein=zAR
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule get_grid_center in file /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py, line 45:
+Job 5  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+output/proteins_gpf/zAR.gpf (missing locally, parent dir contents: )
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-12T174404.985925.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

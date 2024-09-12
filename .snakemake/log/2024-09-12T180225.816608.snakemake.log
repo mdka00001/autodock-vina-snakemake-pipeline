@@ -1,0 +1,42 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                       1
+extract_grid_center        1
+get_grid_center            1
+total                      4
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Sep 12 18:02:25 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/protein.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/protein_E2.gpf
+    jobid: 5
+    reason: Missing output files: output/proteins_gpf/protein_E2.gpf
+    wildcards: protein=protein, ligand=E2
+    resources: tmpdir=/tmp
+
+[Thu Sep 12 18:02:26 2024]
+Error in rule get_grid_center:
+    jobid: 5
+    input: output/proteins_prep/protein.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/protein_E2.gpf
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_gpf4.py -l output/ligands_prep/E2.pdbqt -r output/proteins_prep/protein.pdbqt -o output/proteins_gpf/protein_E2.gpf
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-12T180225.816608.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

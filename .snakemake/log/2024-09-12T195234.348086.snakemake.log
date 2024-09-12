@@ -1,0 +1,41 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count
+-----  -------
+all          1
+dock         1
+total        2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Sep 12 19:52:34 2024]
+localrule dock:
+    input: output/proteins_prep/protein.pdbqt, output/ligands_prep/E2.pdbqt, output/proteins_gpf/protein_E2_center.txt
+    output: output/docking/protein_E2_out.pdbqt, output/docking/protein_E2_log.txt
+    jobid: 2
+    reason: Missing output files: output/docking/protein_E2_out.pdbqt, output/docking/protein_E2_log.txt
+    wildcards: protein=protein, ligand=E2
+    resources: tmpdir=/tmp
+
+[Thu Sep 12 19:52:36 2024]
+Finished job 2.
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Sep 12 19:52:36 2024]
+localrule all:
+    input: output/proteins_prep/protein.pdbqt, output/docking/protein_E2_log.txt, output/docking/protein_E2_out.pdbqt
+    jobid: 0
+    reason: Input files updated by another job: output/docking/protein_E2_out.pdbqt, output/docking/protein_E2_log.txt
+    resources: tmpdir=/tmp
+
+[Thu Sep 12 19:52:36 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2024-09-12T195234.348086.snakemake.log

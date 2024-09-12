@@ -1,0 +1,64 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                       1
+extract_grid_center        1
+get_grid_center            1
+prepare_ligand             1
+total                      5
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Thu Sep 12 17:35:21 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/zAR.pdbqt
+    output: output/proteins_gpf/zAR.gpf
+    jobid: 5
+    reason: Missing output files: output/proteins_gpf/zAR.gpf
+    wildcards: protein=zAR
+    resources: tmpdir=/tmp
+
+
+[Thu Sep 12 17:35:21 2024]
+localrule prepare_ligand:
+    input: data/ligands/E.sdf
+    output: output/ligands_prep/E.pdbqt
+    jobid: 3
+    reason: Missing output files: output/ligands_prep/E.pdbqt
+    wildcards: ligand=E
+    resources: tmpdir=/tmp
+
+[Thu Sep 12 17:35:21 2024]
+Error in rule get_grid_center:
+    jobid: 5
+    input: output/proteins_prep/zAR.pdbqt
+    output: output/proteins_gpf/zAR.gpf
+    shell:
+        
+        prepare_gpf4.py -l output/proteins_prep/zAR.pdbqt -o output/proteins_gpf/zAR.gpf
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Sep 12 17:35:21 2024]
+Error in rule prepare_ligand:
+    jobid: 3
+    input: data/ligands/E.sdf
+    output: output/ligands_prep/E.pdbqt
+    shell:
+        
+        prepare_ligand4.py -l data/ligands/E.sdf -o output/ligands_prep/E.pdbqt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-12T173521.486113.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

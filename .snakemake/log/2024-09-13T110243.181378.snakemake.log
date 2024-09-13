@@ -1,0 +1,43 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                       1
+extract_grid_center        1
+get_grid_center            1
+prepare_ligand             1
+prepare_protein            1
+total                      6
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Fri Sep 13 11:02:43 2024]
+localrule prepare_protein:
+    input: data/proteins/protein.pdb
+    output: output/proteins_prep/protein.pdbqt
+    jobid: 1
+    reason: Missing output files: output/proteins_prep/protein.pdbqt
+    wildcards: protein=protein
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 13 11:02:43 2024]
+localrule prepare_ligand:
+    input: data/ligands/E2.sdf
+    output: output/ligands_prep/E2.pdbqt
+    jobid: 3
+    reason: Missing output files: output/ligands_prep/E2.pdbqt; Set of input files has changed since last execution; Code has changed since last execution
+    wildcards: ligand=E2
+    resources: tmpdir=/tmp
+
+RuleException in rule prepare_ligand in file /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py, line 35:
+NameError: The name 'ligand' is unknown in this context. Did you mean 'wildcards.ligand'?, when formatting the following:
+
+        obabel {input.sdf} -O output/ligands_prep/{ligand}.mol2 && FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/{ligand}.mol2 -o {output.pdbqt}
+        

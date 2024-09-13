@@ -3,7 +3,7 @@ from snakemake.io import glob_wildcards
 
 # Configurations
 proteins = glob_wildcards("data/proteins/{protein}.pdb").protein
-ligands = glob_wildcards("data/ligands/{ligand}.mol2").ligand
+ligands = glob_wildcards("data/ligands/{ligand}.sdf").ligand
 
 # Default docking box size
 config = {
@@ -34,12 +34,12 @@ rule prepare_protein:
 # Rule to prepare the ligand for docking (generating PDBQT)
 rule prepare_ligand:
     input:
-        mol2="data/ligands/{ligand}.mol2"
+        sdf="data/ligands/{ligand}.sdf"
     output:
         pdbqt="output/ligands_prep/{ligand}.pdbqt"
     shell:
         """
-        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l {input.mol2} -o {output.pdbqt}
+        obabel {input.sdf} -O output/ligands_prep/{wildcards.ligand}.mol2 && FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/{wildcards.ligand}.mol2  -o {output.pdbqt}
         """
 
 # Rule to determine the grid center coordinates using AutoDockTools

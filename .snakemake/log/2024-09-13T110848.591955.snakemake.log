@@ -1,0 +1,45 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                       1
+extract_grid_center        1
+get_grid_center            1
+prepare_ligand             1
+total                      5
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 11:08:48 2024]
+localrule prepare_ligand:
+    input: data/ligands/E2.sdf
+    output: output/ligands_prep/E2.pdbqt
+    jobid: 3
+    reason: Missing output files: output/ligands_prep/E2.pdbqt
+    wildcards: ligand=E2
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 11:08:48 2024]
+Error in rule prepare_ligand:
+    jobid: 3
+    input: data/ligands/E2.sdf
+    output: output/ligands_prep/E2.pdbqt
+    shell:
+        
+        obabel data/ligands/E2.sdf -O output/ligands_prep/E2.mol2 
+
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/E2.mol2 -o output/ligands_prep/E2.pdbqt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-13T110848.591955.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

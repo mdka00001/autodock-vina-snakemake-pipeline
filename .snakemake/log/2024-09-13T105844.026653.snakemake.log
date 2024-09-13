@@ -1,0 +1,41 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count
+---------------  -------
+all                    1
+prepare_protein        1
+total                  2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 10:58:44 2024]
+localrule prepare_protein:
+    input: data/proteins/protein.pdb
+    output: output/proteins_prep/protein.pdbqt
+    jobid: 1
+    reason: Missing output files: output/proteins_prep/protein.pdbqt
+    wildcards: protein=protein
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 10:58:44 2024]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 10:58:44 2024]
+localrule all:
+    input: output/proteins_prep/protein.pdbqt
+    jobid: 0
+    reason: Input files updated by another job: output/proteins_prep/protein.pdbqt
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 10:58:44 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2024-09-13T105844.026653.snakemake.log

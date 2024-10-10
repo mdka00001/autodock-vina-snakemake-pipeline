@@ -1,0 +1,122 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	16	dock
+	16	extract_grid_center
+	16	get_grid_center
+	4	prepare_ligand
+	4	prepare_protein
+	57
+
+rule prepare_protein:
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    jobid: 8
+    wildcards: protein=2pin
+
+
+rule prepare_protein:
+    input: data/proteins/4lnx_noalter.pdb
+    output: output/proteins_prep/4lnx_noalter.pdbqt
+    jobid: 20
+    wildcards: protein=4lnx_noalter
+
+
+rule prepare_protein:
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    jobid: 7
+    wildcards: protein=3ert
+
+
+rule prepare_protein:
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    jobid: 3
+    wildcards: protein=2am9
+
+Finished job 7.
+1 of 57 steps (2%) done
+
+rule prepare_ligand:
+    input: data/ligands/1-850.sdf
+    output: output/ligands_prep/1-850.pdbqt
+    jobid: 31
+    wildcards: ligand=1-850
+
+Finished job 8.
+2 of 57 steps (4%) done
+
+rule prepare_ligand:
+    input: data/ligands/DHT.sdf
+    output: output/ligands_prep/DHT.pdbqt
+    jobid: 27
+    wildcards: ligand=DHT
+
+Finished job 20.
+3 of 57 steps (5%) done
+
+rule prepare_ligand:
+    input: data/ligands/E2.sdf
+    output: output/ligands_prep/E2.pdbqt
+    jobid: 26
+    wildcards: ligand=E2
+
+Finished job 3.
+4 of 57 steps (7%) done
+
+rule prepare_ligand:
+    input: data/ligands/T3.sdf
+    output: output/ligands_prep/T3.pdbqt
+    jobid: 21
+    wildcards: ligand=T3
+
+Error in rule prepare_ligand:
+    jobid: 21
+    output: output/ligands_prep/T3.pdbqt
+
+Error in rule prepare_ligand:
+    jobid: 31
+    output: output/ligands_prep/1-850.pdbqt
+
+RuleException:
+CalledProcessError in line 41 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        obabel data/ligands/T3.sdf -O output/ligands_prep/T3.mol2 && FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/T3.mol2  -o output/ligands_prep/T3.pdbqt ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 41, in __rule_prepare_ligand
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+RuleException:
+CalledProcessError in line 41 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        obabel data/ligands/1-850.sdf -O output/ligands_prep/1-850.mol2 && FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/1-850.mol2  -o output/ligands_prep/1-850.pdbqt ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 41, in __rule_prepare_ligand
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Error in rule prepare_ligand:
+    jobid: 27
+    output: output/ligands_prep/DHT.pdbqt
+Will exit after finishing currently running jobs.
+
+Will exit after finishing currently running jobs.
+RuleException:
+CalledProcessError in line 41 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        obabel data/ligands/DHT.sdf -O output/ligands_prep/DHT.mol2 && FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/DHT.mol2  -o output/ligands_prep/DHT.pdbqt ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 41, in __rule_prepare_ligand
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Error in rule prepare_ligand:
+Will exit after finishing currently running jobs.
+    jobid: 26
+    output: output/ligands_prep/E2.pdbqt
+
+RuleException:
+CalledProcessError in line 41 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        obabel data/ligands/E2.sdf -O output/ligands_prep/E2.mol2 && FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/E2.mol2  -o output/ligands_prep/E2.pdbqt ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 41, in __rule_prepare_ligand
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-10T175404.924709.snakemake.log

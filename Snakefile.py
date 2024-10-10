@@ -28,7 +28,7 @@ rule prepare_protein:
         pdbqt="output/proteins_prep/{protein}.pdbqt"
     shell:
         """
-        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r {input.pdb} -o {output.pdbqt} -A hydrogens
+        python2 FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r {input.pdb} -o {output.pdbqt} -A hydrogens  -e True -v
         """
 
 # Rule to prepare the ligand for docking (generating PDBQT)
@@ -39,7 +39,7 @@ rule prepare_ligand:
         pdbqt="output/ligands_prep/{ligand}.pdbqt"
     shell:
         """
-        obabel {input.sdf} -O output/ligands_prep/{wildcards.ligand}.mol2 && FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/{wildcards.ligand}.mol2  -o {output.pdbqt}
+        obabel {input.sdf} -O output/ligands_prep/{wildcards.ligand}.mol2 && python2 FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_ligand4.py -l output/ligands_prep/{wildcards.ligand}.mol2  -o {output.pdbqt}
         """
 
 # Rule to determine the grid center coordinates using AutoDockTools
@@ -51,7 +51,7 @@ rule get_grid_center:
         gpf="output/proteins_gpf/{protein}_{ligand}.gpf"
     shell:
         """
-        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_gpf4.py -l {input.mol2} -r {input.pdb} -o {output.gpf}
+        python2 FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_gpf4.py -l {input.mol2} -r {input.pdb} -o {output.gpf}
         """
 
 # Rule to extract center coordinates from the generated GPF file

@@ -1,0 +1,669 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                      12
+extract_grid_center       12
+get_grid_center           12
+prepare_ligand             3
+prepare_protein            4
+total                     44
+
+Select jobs to execute...
+Execute 4 jobs...
+
+[Mon Sep 16 13:25:44 2024]
+localrule prepare_ligand:
+    input: data/ligands/TCPP.sdf
+    output: output/ligands_prep/TCPP.pdbqt
+    jobid: 6
+    reason: Missing output files: output/ligands_prep/TCPP.pdbqt
+    wildcards: ligand=TCPP
+    resources: tmpdir=/tmp
+
+
+[Mon Sep 16 13:25:44 2024]
+localrule prepare_protein:
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    jobid: 4
+    reason: Missing output files: output/proteins_prep/2pin.pdbqt; Code has changed since last execution
+    wildcards: protein=2pin
+    resources: tmpdir=/tmp
+
+
+[Mon Sep 16 13:25:44 2024]
+localrule prepare_ligand:
+    input: data/ligands/DBDPEther.sdf
+    output: output/ligands_prep/DBDPEther.pdbqt
+    jobid: 14
+    reason: Missing output files: output/ligands_prep/DBDPEther.pdbqt
+    wildcards: ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+
+[Mon Sep 16 13:25:44 2024]
+localrule prepare_protein:
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    jobid: 1
+    reason: Missing output files: output/proteins_prep/3ert.pdbqt; Code has changed since last execution
+    wildcards: protein=3ert
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:44 2024]
+Finished job 6.
+1 of 44 steps (2%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:44 2024]
+localrule prepare_protein:
+    input: data/proteins/4lnx.pdb
+    output: output/proteins_prep/4lnx.pdbqt
+    jobid: 2
+    reason: Missing output files: output/proteins_prep/4lnx.pdbqt; Code has changed since last execution
+    wildcards: protein=4lnx
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:44 2024]
+Finished job 14.
+2 of 44 steps (5%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:44 2024]
+localrule prepare_ligand:
+    input: data/ligands/DBDPEthane.sdf
+    output: output/ligands_prep/DBDPEthane.pdbqt
+    jobid: 10
+    reason: Missing output files: output/ligands_prep/DBDPEthane.pdbqt
+    wildcards: ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:44 2024]
+Finished job 10.
+3 of 44 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:44 2024]
+localrule prepare_protein:
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    jobid: 3
+    reason: Missing output files: output/proteins_prep/2am9.pdbqt; Code has changed since last execution
+    wildcards: protein=2am9
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:45 2024]
+Finished job 1.
+4 of 44 steps (9%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:45 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/3ert_TCPP.gpf
+    jobid: 8
+    reason: Missing output files: output/proteins_gpf/3ert_TCPP.gpf; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:45 2024]
+Finished job 2.
+5 of 44 steps (11%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:45 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/4lnx_TCPP.gpf
+    jobid: 19
+    reason: Missing output files: output/proteins_gpf/4lnx_TCPP.gpf; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_prep/4lnx.pdbqt
+    wildcards: protein=4lnx, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:45 2024]
+Finished job 8.
+6 of 44 steps (14%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:45 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/3ert_TCPP.gpf
+    output: output/proteins_gpf/3ert_TCPP_center.txt
+    jobid: 7
+    reason: Missing output files: output/proteins_gpf/3ert_TCPP_center.txt; Input files updated by another job: output/proteins_gpf/3ert_TCPP.gpf
+    wildcards: protein=3ert, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:45 2024]
+Finished job 3.
+7 of 44 steps (16%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:45 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/2am9_DBDPEthane.gpf
+    jobid: 31
+    reason: Missing output files: output/proteins_gpf/2am9_DBDPEthane.gpf; Input files updated by another job: output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/2am9.pdbqt
+    wildcards: protein=2am9, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:45 2024]
+Finished job 19.
+8 of 44 steps (18%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:45 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/3ert_DBDPEthane.gpf
+    jobid: 12
+    reason: Missing output files: output/proteins_gpf/3ert_DBDPEthane.gpf; Input files updated by another job: output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:45 2024]
+Finished job 7.
+9 of 44 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:45 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/4lnx_TCPP.gpf
+    output: output/proteins_gpf/4lnx_TCPP_center.txt
+    jobid: 18
+    reason: Missing output files: output/proteins_gpf/4lnx_TCPP_center.txt; Input files updated by another job: output/proteins_gpf/4lnx_TCPP.gpf
+    wildcards: protein=4lnx, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:45 2024]
+Finished job 31.
+10 of 44 steps (23%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:45 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/2am9_DBDPEthane.gpf
+    output: output/proteins_gpf/2am9_DBDPEthane_center.txt
+    jobid: 30
+    reason: Missing output files: output/proteins_gpf/2am9_DBDPEthane_center.txt; Input files updated by another job: output/proteins_gpf/2am9_DBDPEthane.gpf
+    wildcards: protein=2am9, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:45 2024]
+Finished job 12.
+11 of 44 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:46 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/3ert_DBDPEthane.gpf
+    output: output/proteins_gpf/3ert_DBDPEthane_center.txt
+    jobid: 11
+    reason: Missing output files: output/proteins_gpf/3ert_DBDPEthane_center.txt; Input files updated by another job: output/proteins_gpf/3ert_DBDPEthane.gpf
+    wildcards: protein=3ert, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:46 2024]
+Finished job 18.
+12 of 44 steps (27%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:46 2024]
+localrule dock:
+    input: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/4lnx_TCPP_center.txt
+    output: output/docking/4lnx_TCPP_out.pdbqt, output/docking/4lnx_TCPP_log.txt
+    jobid: 17
+    reason: Missing output files: output/docking/4lnx_TCPP_out.pdbqt, output/docking/4lnx_TCPP_log.txt; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_prep/4lnx.pdbqt, output/proteins_gpf/4lnx_TCPP_center.txt
+    wildcards: protein=4lnx, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:46 2024]
+Finished job 30.
+13 of 44 steps (30%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:46 2024]
+localrule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/2am9_DBDPEthane_center.txt
+    output: output/docking/2am9_DBDPEthane_out.pdbqt, output/docking/2am9_DBDPEthane_log.txt
+    jobid: 29
+    reason: Missing output files: output/docking/2am9_DBDPEthane_log.txt, output/docking/2am9_DBDPEthane_out.pdbqt; Input files updated by another job: output/proteins_gpf/2am9_DBDPEthane_center.txt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/2am9.pdbqt
+    wildcards: protein=2am9, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:46 2024]
+Finished job 11.
+14 of 44 steps (32%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:46 2024]
+localrule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/3ert_DBDPEthane_center.txt
+    output: output/docking/3ert_DBDPEthane_out.pdbqt, output/docking/3ert_DBDPEthane_log.txt
+    jobid: 9
+    reason: Missing output files: output/docking/3ert_DBDPEthane_log.txt, output/docking/3ert_DBDPEthane_out.pdbqt; Input files updated by another job: output/proteins_gpf/3ert_DBDPEthane_center.txt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:46 2024]
+Finished job 4.
+15 of 44 steps (34%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:46 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/2pin_DBDPEther.gpf
+    jobid: 43
+    reason: Missing output files: output/proteins_gpf/2pin_DBDPEther.gpf; Input files updated by another job: output/ligands_prep/DBDPEther.pdbqt, output/proteins_prep/2pin.pdbqt
+    wildcards: protein=2pin, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:46 2024]
+Finished job 43.
+16 of 44 steps (36%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:46 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/2pin_DBDPEther.gpf
+    output: output/proteins_gpf/2pin_DBDPEther_center.txt
+    jobid: 42
+    reason: Missing output files: output/proteins_gpf/2pin_DBDPEther_center.txt; Input files updated by another job: output/proteins_gpf/2pin_DBDPEther.gpf
+    wildcards: protein=2pin, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:47 2024]
+Finished job 42.
+17 of 44 steps (39%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:47 2024]
+localrule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/2pin_DBDPEther_center.txt
+    output: output/docking/2pin_DBDPEther_out.pdbqt, output/docking/2pin_DBDPEther_log.txt
+    jobid: 41
+    reason: Missing output files: output/docking/2pin_DBDPEther_out.pdbqt, output/docking/2pin_DBDPEther_log.txt; Input files updated by another job: output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/2pin_DBDPEther_center.txt, output/proteins_prep/2pin.pdbqt
+    wildcards: protein=2pin, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:52 2024]
+Finished job 9.
+18 of 44 steps (41%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:52 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/2pin_DBDPEthane.gpf
+    jobid: 40
+    reason: Missing output files: output/proteins_gpf/2pin_DBDPEthane.gpf; Input files updated by another job: output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/2pin.pdbqt
+    wildcards: protein=2pin, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:52 2024]
+Finished job 29.
+19 of 44 steps (43%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:52 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/2pin_TCPP.gpf
+    jobid: 37
+    reason: Missing output files: output/proteins_gpf/2pin_TCPP.gpf; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_prep/2pin.pdbqt
+    wildcards: protein=2pin, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:52 2024]
+Finished job 40.
+20 of 44 steps (45%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:52 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/2pin_DBDPEthane.gpf
+    output: output/proteins_gpf/2pin_DBDPEthane_center.txt
+    jobid: 39
+    reason: Missing output files: output/proteins_gpf/2pin_DBDPEthane_center.txt; Input files updated by another job: output/proteins_gpf/2pin_DBDPEthane.gpf
+    wildcards: protein=2pin, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:52 2024]
+Finished job 39.
+21 of 44 steps (48%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:53 2024]
+localrule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/2pin_DBDPEthane_center.txt
+    output: output/docking/2pin_DBDPEthane_out.pdbqt, output/docking/2pin_DBDPEthane_log.txt
+    jobid: 38
+    reason: Missing output files: output/docking/2pin_DBDPEthane_out.pdbqt, output/docking/2pin_DBDPEthane_log.txt; Input files updated by another job: output/proteins_gpf/2pin_DBDPEthane_center.txt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/2pin.pdbqt
+    wildcards: protein=2pin, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:53 2024]
+Finished job 37.
+22 of 44 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:53 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/2pin_TCPP.gpf
+    output: output/proteins_gpf/2pin_TCPP_center.txt
+    jobid: 36
+    reason: Missing output files: output/proteins_gpf/2pin_TCPP_center.txt; Input files updated by another job: output/proteins_gpf/2pin_TCPP.gpf
+    wildcards: protein=2pin, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:53 2024]
+Finished job 17.
+23 of 44 steps (52%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:53 2024]
+localrule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/3ert_TCPP_center.txt
+    output: output/docking/3ert_TCPP_out.pdbqt, output/docking/3ert_TCPP_log.txt
+    jobid: 5
+    reason: Missing output files: output/docking/3ert_TCPP_log.txt, output/docking/3ert_TCPP_out.pdbqt; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/3ert_TCPP_center.txt, output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:53 2024]
+Finished job 36.
+24 of 44 steps (55%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:53 2024]
+localrule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/2pin_TCPP_center.txt
+    output: output/docking/2pin_TCPP_out.pdbqt, output/docking/2pin_TCPP_log.txt
+    jobid: 35
+    reason: Missing output files: output/docking/2pin_TCPP_out.pdbqt, output/docking/2pin_TCPP_log.txt; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_prep/2pin.pdbqt, output/proteins_gpf/2pin_TCPP_center.txt
+    wildcards: protein=2pin, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:58 2024]
+Finished job 41.
+25 of 44 steps (57%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:58 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/2am9_TCPP.gpf
+    jobid: 28
+    reason: Missing output files: output/proteins_gpf/2am9_TCPP.gpf; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_prep/2am9.pdbqt
+    wildcards: protein=2am9, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:58 2024]
+Finished job 28.
+26 of 44 steps (59%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:58 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/2am9_TCPP.gpf
+    output: output/proteins_gpf/2am9_TCPP_center.txt
+    jobid: 27
+    reason: Missing output files: output/proteins_gpf/2am9_TCPP_center.txt; Input files updated by another job: output/proteins_gpf/2am9_TCPP.gpf
+    wildcards: protein=2am9, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:58 2024]
+Finished job 27.
+27 of 44 steps (61%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:58 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/2am9_DBDPEther.gpf
+    jobid: 34
+    reason: Missing output files: output/proteins_gpf/2am9_DBDPEther.gpf; Input files updated by another job: output/ligands_prep/DBDPEther.pdbqt, output/proteins_prep/2am9.pdbqt
+    wildcards: protein=2am9, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:59 2024]
+Finished job 34.
+28 of 44 steps (64%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:59 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/2am9_DBDPEther.gpf
+    output: output/proteins_gpf/2am9_DBDPEther_center.txt
+    jobid: 33
+    reason: Missing output files: output/proteins_gpf/2am9_DBDPEther_center.txt; Input files updated by another job: output/proteins_gpf/2am9_DBDPEther.gpf
+    wildcards: protein=2am9, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:59 2024]
+Finished job 33.
+29 of 44 steps (66%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:59 2024]
+localrule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/2am9_DBDPEther_center.txt
+    output: output/docking/2am9_DBDPEther_out.pdbqt, output/docking/2am9_DBDPEther_log.txt
+    jobid: 32
+    reason: Missing output files: output/docking/2am9_DBDPEther_log.txt, output/docking/2am9_DBDPEther_out.pdbqt; Input files updated by another job: output/proteins_gpf/2am9_DBDPEther_center.txt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_prep/2am9.pdbqt
+    wildcards: protein=2am9, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:25:59 2024]
+Finished job 38.
+30 of 44 steps (68%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:25:59 2024]
+localrule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/2am9_TCPP_center.txt
+    output: output/docking/2am9_TCPP_out.pdbqt, output/docking/2am9_TCPP_log.txt
+    jobid: 26
+    reason: Missing output files: output/docking/2am9_TCPP_log.txt, output/docking/2am9_TCPP_out.pdbqt; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/2am9_TCPP_center.txt, output/proteins_prep/2am9.pdbqt
+    wildcards: protein=2am9, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:00 2024]
+Finished job 35.
+31 of 44 steps (70%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:00 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/4lnx_DBDPEthane.gpf
+    jobid: 22
+    reason: Missing output files: output/proteins_gpf/4lnx_DBDPEthane.gpf; Input files updated by another job: output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/4lnx.pdbqt
+    wildcards: protein=4lnx, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:00 2024]
+Finished job 22.
+32 of 44 steps (73%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:00 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/4lnx_DBDPEthane.gpf
+    output: output/proteins_gpf/4lnx_DBDPEthane_center.txt
+    jobid: 21
+    reason: Missing output files: output/proteins_gpf/4lnx_DBDPEthane_center.txt; Input files updated by another job: output/proteins_gpf/4lnx_DBDPEthane.gpf
+    wildcards: protein=4lnx, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:00 2024]
+Finished job 21.
+33 of 44 steps (75%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:00 2024]
+localrule dock:
+    input: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/4lnx_DBDPEthane_center.txt
+    output: output/docking/4lnx_DBDPEthane_out.pdbqt, output/docking/4lnx_DBDPEthane_log.txt
+    jobid: 20
+    reason: Missing output files: output/docking/4lnx_DBDPEthane_out.pdbqt, output/docking/4lnx_DBDPEthane_log.txt; Input files updated by another job: output/proteins_gpf/4lnx_DBDPEthane_center.txt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/4lnx.pdbqt
+    wildcards: protein=4lnx, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:01 2024]
+Finished job 5.
+34 of 44 steps (77%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:01 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/3ert_DBDPEther.gpf
+    jobid: 16
+    reason: Missing output files: output/proteins_gpf/3ert_DBDPEther.gpf; Input files updated by another job: output/ligands_prep/DBDPEther.pdbqt, output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:01 2024]
+Finished job 16.
+35 of 44 steps (80%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:01 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/4lnx_DBDPEther.gpf
+    jobid: 25
+    reason: Missing output files: output/proteins_gpf/4lnx_DBDPEther.gpf; Input files updated by another job: output/ligands_prep/DBDPEther.pdbqt, output/proteins_prep/4lnx.pdbqt
+    wildcards: protein=4lnx, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:01 2024]
+Finished job 25.
+36 of 44 steps (82%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:01 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/3ert_DBDPEther.gpf
+    output: output/proteins_gpf/3ert_DBDPEther_center.txt
+    jobid: 15
+    reason: Missing output files: output/proteins_gpf/3ert_DBDPEther_center.txt; Input files updated by another job: output/proteins_gpf/3ert_DBDPEther.gpf
+    wildcards: protein=3ert, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:02 2024]
+Finished job 15.
+37 of 44 steps (84%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:02 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/4lnx_DBDPEther.gpf
+    output: output/proteins_gpf/4lnx_DBDPEther_center.txt
+    jobid: 24
+    reason: Missing output files: output/proteins_gpf/4lnx_DBDPEther_center.txt; Input files updated by another job: output/proteins_gpf/4lnx_DBDPEther.gpf
+    wildcards: protein=4lnx, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:03 2024]
+Finished job 24.
+38 of 44 steps (86%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:03 2024]
+localrule dock:
+    input: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/4lnx_DBDPEther_center.txt
+    output: output/docking/4lnx_DBDPEther_out.pdbqt, output/docking/4lnx_DBDPEther_log.txt
+    jobid: 23
+    reason: Missing output files: output/docking/4lnx_DBDPEther_out.pdbqt, output/docking/4lnx_DBDPEther_log.txt; Input files updated by another job: output/ligands_prep/DBDPEther.pdbqt, output/proteins_prep/4lnx.pdbqt, output/proteins_gpf/4lnx_DBDPEther_center.txt
+    wildcards: protein=4lnx, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:04 2024]
+Finished job 32.
+39 of 44 steps (89%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:04 2024]
+localrule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/3ert_DBDPEther_center.txt
+    output: output/docking/3ert_DBDPEther_out.pdbqt, output/docking/3ert_DBDPEther_log.txt
+    jobid: 13
+    reason: Missing output files: output/docking/3ert_DBDPEther_out.pdbqt, output/docking/3ert_DBDPEther_log.txt; Input files updated by another job: output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/3ert_DBDPEther_center.txt, output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:09 2024]
+Finished job 26.
+40 of 44 steps (91%) done
+[Mon Sep 16 13:26:09 2024]
+Finished job 20.
+41 of 44 steps (93%) done
+[Mon Sep 16 13:26:09 2024]
+Finished job 13.
+42 of 44 steps (95%) done
+[Mon Sep 16 13:26:14 2024]
+Finished job 23.
+43 of 44 steps (98%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Sep 16 13:26:14 2024]
+localrule all:
+    input: output/proteins_prep/3ert.pdbqt, output/proteins_prep/4lnx.pdbqt, output/proteins_prep/2am9.pdbqt, output/proteins_prep/2pin.pdbqt, output/docking/3ert_TCPP_log.txt, output/docking/3ert_DBDPEthane_log.txt, output/docking/3ert_DBDPEther_log.txt, output/docking/4lnx_TCPP_log.txt, output/docking/4lnx_DBDPEthane_log.txt, output/docking/4lnx_DBDPEther_log.txt, output/docking/2am9_TCPP_log.txt, output/docking/2am9_DBDPEthane_log.txt, output/docking/2am9_DBDPEther_log.txt, output/docking/2pin_TCPP_log.txt, output/docking/2pin_DBDPEthane_log.txt, output/docking/2pin_DBDPEther_log.txt, output/docking/3ert_TCPP_out.pdbqt, output/docking/3ert_DBDPEthane_out.pdbqt, output/docking/3ert_DBDPEther_out.pdbqt, output/docking/4lnx_TCPP_out.pdbqt, output/docking/4lnx_DBDPEthane_out.pdbqt, output/docking/4lnx_DBDPEther_out.pdbqt, output/docking/2am9_TCPP_out.pdbqt, output/docking/2am9_DBDPEthane_out.pdbqt, output/docking/2am9_DBDPEther_out.pdbqt, output/docking/2pin_TCPP_out.pdbqt, output/docking/2pin_DBDPEthane_out.pdbqt, output/docking/2pin_DBDPEther_out.pdbqt
+    jobid: 0
+    reason: Input files updated by another job: output/docking/2pin_TCPP_out.pdbqt, output/docking/3ert_TCPP_out.pdbqt, output/docking/2pin_DBDPEthane_log.txt, output/docking/2am9_DBDPEthane_log.txt, output/docking/2am9_TCPP_out.pdbqt, output/proteins_prep/3ert.pdbqt, output/docking/2pin_DBDPEther_out.pdbqt, output/docking/4lnx_TCPP_out.pdbqt, output/proteins_prep/2pin.pdbqt, output/docking/3ert_TCPP_log.txt, output/docking/3ert_DBDPEthane_out.pdbqt, output/docking/3ert_DBDPEther_out.pdbqt, output/docking/4lnx_DBDPEther_out.pdbqt, output/docking/2am9_TCPP_log.txt, output/docking/2pin_DBDPEthane_out.pdbqt, output/docking/2pin_DBDPEther_log.txt, output/proteins_prep/4lnx.pdbqt, output/docking/4lnx_DBDPEthane_out.pdbqt, output/docking/3ert_DBDPEthane_log.txt, output/docking/2am9_DBDPEthane_out.pdbqt, output/docking/4lnx_TCPP_log.txt, output/docking/4lnx_DBDPEthane_log.txt, output/docking/4lnx_DBDPEther_log.txt, output/docking/2pin_TCPP_log.txt, output/docking/2am9_DBDPEther_out.pdbqt, output/docking/3ert_DBDPEther_log.txt, output/docking/2am9_DBDPEther_log.txt, output/proteins_prep/2am9.pdbqt
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 13:26:14 2024]
+Finished job 0.
+44 of 44 steps (100%) done
+Complete log: .snakemake/log/2024-09-16T132544.104838.snakemake.log

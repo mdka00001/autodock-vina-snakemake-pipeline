@@ -1,0 +1,86 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	16	dock
+	16	extract_grid_center
+	16	get_grid_center
+	4	prepare_ligand
+	4	prepare_protein
+	57
+
+rule prepare_protein:
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    jobid: 4
+    wildcards: protein=2am9
+
+
+rule prepare_protein:
+    input: data/proteins/4lnx_noalter.pdb
+    output: output/proteins_prep/4lnx_noalter.pdbqt
+    jobid: 2
+    wildcards: protein=4lnx_noalter
+
+
+rule prepare_protein:
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    jobid: 18
+    wildcards: protein=3ert
+
+
+rule prepare_protein:
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    jobid: 8
+    wildcards: protein=2pin
+
+Error in rule prepare_protein:
+    jobid: 4
+    output: output/proteins_prep/2am9.pdbqt
+
+RuleException:
+CalledProcessError in line 30 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/2am9.pdb -o output/proteins_prep/2am9.pdbqt -A hydrogens  -e True -v ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 30, in __rule_prepare_protein
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Error in rule prepare_protein:
+    jobid: 2
+    output: output/proteins_prep/4lnx_noalter.pdbqt
+
+RuleException:
+CalledProcessError in line 30 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/4lnx_noalter.pdb -o output/proteins_prep/4lnx_noalter.pdbqt -A hydrogens  -e True -v ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 30, in __rule_prepare_protein
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Error in rule prepare_protein:
+    jobid: 18
+Will exit after finishing currently running jobs.
+    output: output/proteins_prep/3ert.pdbqt
+
+RuleException:
+CalledProcessError in line 30 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/3ert.pdb -o output/proteins_prep/3ert.pdbqt -A hydrogens  -e True -v ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 30, in __rule_prepare_protein
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Error in rule prepare_protein:
+    jobid: 8
+    output: output/proteins_prep/2pin.pdbqt
+
+RuleException:
+CalledProcessError in line 30 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/2pin.pdb -o output/proteins_prep/2pin.pdbqt -A hydrogens  -e True -v ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 30, in __rule_prepare_protein
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-10T171420.022181.snakemake.log

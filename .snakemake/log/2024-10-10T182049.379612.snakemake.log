@@ -1,0 +1,144 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	12	dock
+	4	extract_grid_center
+	4	get_grid_center
+	1	prepare_protein
+	22
+
+rule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/1-850.pdbqt, output/proteins_gpf/3ert_1-850_center.txt
+    output: output/docking/3ert_1-850_out.pdbqt, output/docking/3ert_1-850_log.txt
+    jobid: 15
+    wildcards: protein=3ert, ligand=1-850
+
+
+rule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/T3.pdbqt, output/proteins_gpf/3ert_T3_center.txt
+    output: output/docking/3ert_T3_out.pdbqt, output/docking/3ert_T3_log.txt
+    jobid: 12
+    wildcards: protein=3ert, ligand=T3
+
+
+rule prepare_protein:
+    input: data/proteins/2h77.pdb
+    output: output/proteins_prep/2h77.pdbqt
+    jobid: 24
+    wildcards: protein=2h77
+
+
+rule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/1-850.pdbqt, output/proteins_gpf/2pin_1-850_center.txt
+    output: output/docking/2pin_1-850_out.pdbqt, output/docking/2pin_1-850_log.txt
+    jobid: 6
+    wildcards: protein=2pin, ligand=1-850
+
+Finished job 24.
+1 of 22 steps (5%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/1-850.pdbqt
+    output: output/proteins_gpf/2h77_1-850.gpf
+    jobid: 57
+    wildcards: protein=2h77, ligand=1-850
+
+Finished job 57.
+2 of 22 steps (9%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/T3.pdbqt
+    output: output/proteins_gpf/2h77_T3.gpf
+    jobid: 58
+    wildcards: protein=2h77, ligand=T3
+
+Finished job 58.
+3 of 22 steps (14%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/2h77_E2.gpf
+    jobid: 65
+    wildcards: protein=2h77, ligand=E2
+
+Finished job 65.
+4 of 22 steps (18%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/DHT.pdbqt
+    output: output/proteins_gpf/2h77_DHT.gpf
+    jobid: 62
+    wildcards: protein=2h77, ligand=DHT
+
+Finished job 62.
+5 of 22 steps (23%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_T3.gpf
+    output: output/proteins_gpf/2h77_T3_center.txt
+    jobid: 38
+    wildcards: protein=2h77, ligand=T3
+
+Finished job 38.
+6 of 22 steps (27%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_1-850.gpf
+    output: output/proteins_gpf/2h77_1-850_center.txt
+    jobid: 37
+    wildcards: protein=2h77, ligand=1-850
+
+Finished job 37.
+7 of 22 steps (32%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_E2.gpf
+    output: output/proteins_gpf/2h77_E2_center.txt
+    jobid: 45
+    wildcards: protein=2h77, ligand=E2
+
+Finished job 45.
+8 of 22 steps (36%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_DHT.gpf
+    output: output/proteins_gpf/2h77_DHT_center.txt
+    jobid: 42
+    wildcards: protein=2h77, ligand=DHT
+
+Finished job 42.
+9 of 22 steps (41%) done
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/1-850.pdbqt, output/proteins_gpf/2h77_1-850_center.txt
+    output: output/docking/2h77_1-850_out.pdbqt, output/docking/2h77_1-850_log.txt
+    jobid: 8
+    wildcards: protein=2h77, ligand=1-850
+
+Error in rule dock:
+    jobid: 8
+    output: output/docking/2h77_1-850_out.pdbqt, output/docking/2h77_1-850_log.txt
+
+RuleException:
+CalledProcessError in line 87 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        vina --receptor output/proteins_prep/2h77.pdbqt --ligand output/ligands_prep/1-850.pdbqt              --center_x $(cat output/proteins_gpf/2h77_1-850_center.txt | cut -d ' ' -f 1)              --center_y $(cat output/proteins_gpf/2h77_1-850_center.txt | cut -d ' ' -f 2)              --center_z $(cat output/proteins_gpf/2h77_1-850_center.txt | cut -d ' ' -f 3)              --size_x 40 --size_y 40 --size_z 40              --out output/docking/2h77_1-850_out.pdbqt --log output/docking/2h77_1-850_log.txt --exhaustiveness 8 ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 87, in __rule_dock
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job dock since they might be corrupted:
+output/docking/2h77_1-850_log.txt
+Will exit after finishing currently running jobs.
+Finished job 12.
+10 of 22 steps (45%) done
+Will exit after finishing currently running jobs.
+Finished job 15.
+11 of 22 steps (50%) done
+Will exit after finishing currently running jobs.
+Finished job 6.
+12 of 22 steps (55%) done
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-10T182049.379612.snakemake.log

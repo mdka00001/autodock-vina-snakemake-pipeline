@@ -1,0 +1,85 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                       9
+extract_grid_center        9
+get_grid_center            9
+prepare_protein            3
+total                     31
+
+Select jobs to execute...
+Execute 3 jobs...
+
+[Mon Sep 16 10:53:04 2024]
+localrule prepare_protein:
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    jobid: 3
+    reason: Code has changed since last execution
+    wildcards: protein=2pin
+    resources: tmpdir=/tmp
+
+
+[Mon Sep 16 10:53:04 2024]
+localrule prepare_protein:
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    jobid: 2
+    reason: Missing output files: output/proteins_prep/2am9.pdbqt; Code has changed since last execution
+    wildcards: protein=2am9
+    resources: tmpdir=/tmp
+
+
+[Mon Sep 16 10:53:04 2024]
+localrule prepare_protein:
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    jobid: 1
+    reason: Code has changed since last execution
+    wildcards: protein=3ert
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 10:53:04 2024]
+Error in rule prepare_protein:
+    jobid: 1
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/3ert.pdb -o output/proteins_prep/3ert.pdbqt -A hydrogens -U
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Sep 16 10:53:04 2024]
+Error in rule prepare_protein:
+    jobid: 3
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/2pin.pdb -o output/proteins_prep/2pin.pdbqt -A hydrogens -U
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Sep 16 10:53:04 2024]
+Error in rule prepare_protein:
+    jobid: 2
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/2am9.pdb -o output/proteins_prep/2am9.pdbqt -A hydrogens -U
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-16T105304.636408.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

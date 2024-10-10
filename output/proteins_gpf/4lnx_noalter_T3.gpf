@@ -1,0 +1,50 @@
+receptor 4lnx_noalter.pdbqt          # macromolecule
+gridfld 4lnx_noalter.maps.fld        # grid_data_file
+npts 40 40 40                        # num.grid points in xyz
+spacing 0.375                        # spacing(A)
+gridcenter 0.0275 0.3625 -0.3745     # xyz-coordinates or auto
+types CANI                           # atom type names
+smooth 0.5                           # store minimum energy w/in rad(A)
+map 4lnx_noalter.C.map               # atom-specific affinity map
+nbp_r_eps  4.00 0.0222750 12  6   # C-C lj
+nbp_r_eps  3.75 0.0230026 12  6   # C-N lj
+nbp_r_eps  3.60 0.0257202 12  6   # C-O lj
+nbp_r_eps  4.00 0.0257202 12  6   # C-S lj
+nbp_r_eps  3.00 0.0081378 12  6   # C-H lj
+nbp_r_eps  3.00 0.0081378 12  6   # C-H lj
+nbp_r_eps  3.00 0.0081378 12  6   # C-H lj
+sol_par  12.77 0.6844    # C atomic fragmental volume, solvation parameters
+constant  0.000      # C grid map constant energy
+map 4lnx_noalter.A.map               # atom-specific affinity map
+nbp_r_eps  4.00 0.0222750 12  6   # A-C lj
+nbp_r_eps  3.75 0.0230026 12  6   # A-N lj
+nbp_r_eps  3.60 0.0257202 12  6   # A-O lj
+nbp_r_eps  4.00 0.0257202 12  6   # A-S lj
+nbp_r_eps  3.00 0.0081378 12  6   # A-H lj
+nbp_r_eps  3.00 0.0081378 12  6   # A-H lj
+nbp_r_eps  3.00 0.0081378 12  6   # A-H lj
+sol_par  10.80 0.1027    # A atomic fragmental volume, solvation parameters
+constant  0.000      # A grid map constant energy
+map 4lnx_noalter.N.map               # atom-specific affinity map
+nbp_r_eps  3.75 0.0230026 12  6   # N-C lj
+nbp_r_eps  3.50 0.0237600 12  6   # N-N lj
+nbp_r_eps  3.35 0.0265667 12  6   # N-O lj
+nbp_r_eps  3.75 0.0265667 12  6   # N-S lj
+nbp_r_eps  1.90 0.3280000 12 10   # N-H hb
+nbp_r_eps  1.90 0.3280000 12 10   # N-H hb
+nbp_r_eps  1.90 0.3280000 12 10   # N-H hb
+sol_par   0.00 0.0000    # N atomic fragmental volume, solvation parameters
+constant  0.000      # N grid map constant energy
+map 4lnx_noalter.I.map               # atom-specific affinity map
+nbp_r_eps  4.36 0.0427235 12  6   # I-C lj
+nbp_r_eps  4.11 0.0441342 12  6   # I-N lj
+nbp_r_eps  3.96 0.0493465 12  6   # I-O lj
+nbp_r_eps  4.36 0.0493465 12  6   # I-S lj
+nbp_r_eps  3.36 0.0156073 12  6   # I-H lj
+nbp_r_eps  3.36 0.0156073 12  6   # I-H lj
+nbp_r_eps  3.36 0.0156073 12  6   # I-H lj
+sol_par  0.000 0.000    #I atomic fragmental volume, solvation parameters
+constant  0.000          #I grid map constant energy
+elecmap 4lnx_noalter.e.map           # electrostatic potential map
+dielectric -0.1146                   # <0, distance-dep.diel;>0, constant
+#

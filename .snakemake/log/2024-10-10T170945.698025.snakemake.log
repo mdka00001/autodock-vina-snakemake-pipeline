@@ -1,0 +1,106 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                      16
+extract_grid_center       16
+get_grid_center           16
+prepare_ligand             4
+prepare_protein            4
+total                     57
+
+Select jobs to execute...
+Execute 4 jobs...
+
+[Thu Oct 10 17:09:45 2024]
+localrule prepare_protein:
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    jobid: 4
+    reason: Missing output files: output/proteins_prep/2pin.pdbqt
+    wildcards: protein=2pin
+    resources: tmpdir=/tmp
+
+
+[Thu Oct 10 17:09:45 2024]
+localrule prepare_protein:
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    jobid: 3
+    reason: Missing output files: output/proteins_prep/2am9.pdbqt
+    wildcards: protein=2am9
+    resources: tmpdir=/tmp
+
+
+[Thu Oct 10 17:09:45 2024]
+localrule prepare_protein:
+    input: data/proteins/4lnx_noalter.pdb
+    output: output/proteins_prep/4lnx_noalter.pdbqt
+    jobid: 2
+    reason: Missing output files: output/proteins_prep/4lnx_noalter.pdbqt
+    wildcards: protein=4lnx_noalter
+    resources: tmpdir=/tmp
+
+
+[Thu Oct 10 17:09:45 2024]
+localrule prepare_protein:
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    jobid: 1
+    reason: Missing output files: output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert
+    resources: tmpdir=/tmp
+
+[Thu Oct 10 17:09:45 2024]
+Error in rule prepare_protein:
+    jobid: 4
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/2pin.pdb -o output/proteins_prep/2pin.pdbqt -A hydrogens  -e True -v
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Oct 10 17:09:45 2024]
+Error in rule prepare_protein:
+    jobid: 2
+    input: data/proteins/4lnx_noalter.pdb
+    output: output/proteins_prep/4lnx_noalter.pdbqt
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/4lnx_noalter.pdb -o output/proteins_prep/4lnx_noalter.pdbqt -A hydrogens  -e True -v
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu Oct 10 17:09:45 2024]
+[Thu Oct 10 17:09:45 2024]
+Error in rule prepare_protein:
+    jobid: 3
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/2am9.pdb -o output/proteins_prep/2am9.pdbqt -A hydrogens  -e True -v
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule prepare_protein:
+    jobid: 1
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py -r data/proteins/3ert.pdb -o output/proteins_prep/3ert.pdbqt -A hydrogens  -e True -v
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-10T170945.698025.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

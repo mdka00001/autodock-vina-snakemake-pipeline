@@ -1,0 +1,179 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	9	dock
+	4	extract_grid_center
+	4	get_grid_center
+	1	prepare_protein
+	19
+
+rule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/E2.pdbqt, output/proteins_gpf/3ert_E2_center.txt
+    output: output/docking/3ert_E2_out.pdbqt, output/docking/3ert_E2_log.txt
+    jobid: 14
+    wildcards: protein=3ert, ligand=E2
+
+
+rule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DHT.pdbqt, output/proteins_gpf/3ert_DHT_center.txt
+    output: output/docking/3ert_DHT_out.pdbqt, output/docking/3ert_DHT_log.txt
+    jobid: 17
+    wildcards: protein=3ert, ligand=DHT
+
+
+rule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/T3.pdbqt, output/proteins_gpf/2pin_T3_center.txt
+    output: output/docking/2pin_T3_out.pdbqt, output/docking/2pin_T3_log.txt
+    jobid: 8
+    wildcards: protein=2pin, ligand=T3
+
+
+rule prepare_protein:
+    input: data/proteins/2h77.pdb
+    output: output/proteins_prep/2h77.pdbqt
+    jobid: 21
+    wildcards: protein=2h77
+
+Finished job 21.
+1 of 19 steps (5%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/1-850.pdbqt
+    output: output/proteins_gpf/2h77_1-850.gpf
+    jobid: 69
+    wildcards: protein=2h77, ligand=1-850
+
+Finished job 69.
+2 of 19 steps (11%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/T3.pdbqt
+    output: output/proteins_gpf/2h77_T3.gpf
+    jobid: 54
+    wildcards: protein=2h77, ligand=T3
+
+Finished job 54.
+3 of 19 steps (16%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/2h77_E2.gpf
+    jobid: 63
+    wildcards: protein=2h77, ligand=E2
+
+Finished job 63.
+4 of 19 steps (21%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/DHT.pdbqt
+    output: output/proteins_gpf/2h77_DHT.gpf
+    jobid: 51
+    wildcards: protein=2h77, ligand=DHT
+
+Finished job 51.
+5 of 19 steps (26%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_1-850.gpf
+    output: output/proteins_gpf/2h77_1-850_center.txt
+    jobid: 49
+    wildcards: protein=2h77, ligand=1-850
+
+Finished job 49.
+6 of 19 steps (32%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_T3.gpf
+    output: output/proteins_gpf/2h77_T3_center.txt
+    jobid: 34
+    wildcards: protein=2h77, ligand=T3
+
+Finished job 34.
+7 of 19 steps (37%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_E2.gpf
+    output: output/proteins_gpf/2h77_E2_center.txt
+    jobid: 43
+    wildcards: protein=2h77, ligand=E2
+
+Finished job 17.
+8 of 19 steps (42%) done
+Finished job 43.
+9 of 19 steps (47%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_DHT.gpf
+    output: output/proteins_gpf/2h77_DHT_center.txt
+    jobid: 28
+    wildcards: protein=2h77, ligand=DHT
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/1-850.pdbqt, output/proteins_gpf/2h77_1-850_center.txt
+    output: output/docking/2h77_1-850_out.pdbqt, output/docking/2h77_1-850_log.txt
+    jobid: 22
+    wildcards: protein=2h77, ligand=1-850
+
+Finished job 28.
+10 of 19 steps (53%) done
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/T3.pdbqt, output/proteins_gpf/2h77_T3_center.txt
+    output: output/docking/2h77_T3_out.pdbqt, output/docking/2h77_T3_log.txt
+    jobid: 5
+    wildcards: protein=2h77, ligand=T3
+
+Finished job 14.
+11 of 19 steps (58%) done
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/E2.pdbqt, output/proteins_gpf/2h77_E2_center.txt
+    output: output/docking/2h77_E2_out.pdbqt, output/docking/2h77_E2_log.txt
+    jobid: 15
+    wildcards: protein=2h77, ligand=E2
+
+Finished job 15.
+12 of 19 steps (63%) done
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/DHT.pdbqt, output/proteins_gpf/2h77_DHT_center.txt
+    output: output/docking/2h77_DHT_out.pdbqt, output/docking/2h77_DHT_log.txt
+    jobid: 2
+    wildcards: protein=2h77, ligand=DHT
+
+Finished job 2.
+13 of 19 steps (68%) done
+
+rule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/E2.pdbqt, output/proteins_gpf/2pin_E2_center.txt
+    output: output/docking/2pin_E2_out.pdbqt, output/docking/2pin_E2_log.txt
+    jobid: 4
+    wildcards: protein=2pin, ligand=E2
+
+Finished job 4.
+14 of 19 steps (74%) done
+
+rule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DHT.pdbqt, output/proteins_gpf/2pin_DHT_center.txt
+    output: output/docking/2pin_DHT_out.pdbqt, output/docking/2pin_DHT_log.txt
+    jobid: 16
+    wildcards: protein=2pin, ligand=DHT
+
+Finished job 16.
+15 of 19 steps (79%) done
+Finished job 8.
+16 of 19 steps (84%) done
+Finished job 5.
+17 of 19 steps (89%) done
+Finished job 22.
+18 of 19 steps (95%) done
+
+localrule all:
+    input: output/proteins_prep/3ert.pdbqt, output/proteins_prep/4lnx_noalter.pdbqt, output/proteins_prep/2am9.pdbqt, output/proteins_prep/2h77.pdbqt, output/proteins_prep/2pin.pdbqt, output/docking/3ert_1-850_log.txt, output/docking/3ert_T3_log.txt, output/docking/3ert_E2_log.txt, output/docking/3ert_DHT_log.txt, output/docking/4lnx_noalter_1-850_log.txt, output/docking/4lnx_noalter_T3_log.txt, output/docking/4lnx_noalter_E2_log.txt, output/docking/4lnx_noalter_DHT_log.txt, output/docking/2am9_1-850_log.txt, output/docking/2am9_T3_log.txt, output/docking/2am9_E2_log.txt, output/docking/2am9_DHT_log.txt, output/docking/2h77_1-850_log.txt, output/docking/2h77_T3_log.txt, output/docking/2h77_E2_log.txt, output/docking/2h77_DHT_log.txt, output/docking/2pin_1-850_log.txt, output/docking/2pin_T3_log.txt, output/docking/2pin_E2_log.txt, output/docking/2pin_DHT_log.txt, output/docking/3ert_1-850_out.pdbqt, output/docking/3ert_T3_out.pdbqt, output/docking/3ert_E2_out.pdbqt, output/docking/3ert_DHT_out.pdbqt, output/docking/4lnx_noalter_1-850_out.pdbqt, output/docking/4lnx_noalter_T3_out.pdbqt, output/docking/4lnx_noalter_E2_out.pdbqt, output/docking/4lnx_noalter_DHT_out.pdbqt, output/docking/2am9_1-850_out.pdbqt, output/docking/2am9_T3_out.pdbqt, output/docking/2am9_E2_out.pdbqt, output/docking/2am9_DHT_out.pdbqt, output/docking/2h77_1-850_out.pdbqt, output/docking/2h77_T3_out.pdbqt, output/docking/2h77_E2_out.pdbqt, output/docking/2h77_DHT_out.pdbqt, output/docking/2pin_1-850_out.pdbqt, output/docking/2pin_T3_out.pdbqt, output/docking/2pin_E2_out.pdbqt, output/docking/2pin_DHT_out.pdbqt
+    jobid: 0
+
+Finished job 0.
+19 of 19 steps (100%) done

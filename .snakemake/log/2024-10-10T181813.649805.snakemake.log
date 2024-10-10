@@ -1,0 +1,537 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	20	dock
+	20	extract_grid_center
+	20	get_grid_center
+	4	prepare_ligand
+	5	prepare_protein
+	70
+
+rule prepare_ligand:
+    input: data/ligands/1-850.sdf
+    output: output/ligands_prep/1-850.pdbqt
+    jobid: 26
+    wildcards: ligand=1-850
+
+
+rule prepare_ligand:
+    input: data/ligands/E2.sdf
+    output: output/ligands_prep/E2.pdbqt
+    jobid: 33
+    wildcards: ligand=E2
+
+
+rule prepare_ligand:
+    input: data/ligands/T3.sdf
+    output: output/ligands_prep/T3.pdbqt
+    jobid: 30
+    wildcards: ligand=T3
+
+
+rule prepare_ligand:
+    input: data/ligands/DHT.sdf
+    output: output/ligands_prep/DHT.pdbqt
+    jobid: 29
+    wildcards: ligand=DHT
+
+Finished job 30.
+1 of 70 steps (1%) done
+Finished job 29.
+2 of 70 steps (3%) done
+
+rule prepare_protein:
+    input: data/proteins/2h77.pdb
+    output: output/proteins_prep/2h77.pdbqt
+    jobid: 12
+    wildcards: protein=2h77
+
+rule prepare_protein:
+    input: data/proteins/4lnx_noalter.pdb
+    output: output/proteins_prep/4lnx_noalter.pdbqt
+    jobid: 4
+    wildcards: protein=4lnx_noalter
+
+Finished job 26.
+3 of 70 steps (4%) done
+Finished job 33.
+4 of 70 steps (6%) done
+
+rule prepare_protein:
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    jobid: 21
+    wildcards: protein=3ert
+
+rule prepare_protein:
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    jobid: 23
+    wildcards: protein=2am9
+
+Finished job 12.
+5 of 70 steps (7%) done
+Finished job 21.
+6 of 70 steps (9%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/1-850.pdbqt
+    output: output/proteins_gpf/2h77_1-850.gpf
+    jobid: 56
+    wildcards: protein=2h77, ligand=1-850
+
+rule prepare_protein:
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    jobid: 25
+    wildcards: protein=2pin
+
+Finished job 4.
+7 of 70 steps (10%) done
+Finished job 56.
+8 of 70 steps (11%) done
+Finished job 23.
+9 of 70 steps (13%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/1-850.pdbqt
+    output: output/proteins_gpf/4lnx_noalter_1-850.gpf
+    jobid: 50
+    wildcards: protein=4lnx_noalter, ligand=1-850
+
+
+rule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/1-850.pdbqt
+    output: output/proteins_gpf/2am9_1-850.gpf
+    jobid: 65
+    wildcards: protein=2am9, ligand=1-850
+
+rule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/T3.pdbqt
+    output: output/proteins_gpf/2am9_T3.gpf
+    jobid: 66
+    wildcards: protein=2am9, ligand=T3
+
+Finished job 50.
+10 of 70 steps (14%) done
+Finished job 65.
+11 of 70 steps (16%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/2am9_E2.gpf
+    jobid: 69
+    wildcards: protein=2am9, ligand=E2
+
+
+rule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DHT.pdbqt
+    output: output/proteins_gpf/2am9_DHT.gpf
+    jobid: 54
+    wildcards: protein=2am9, ligand=DHT
+
+Finished job 66.
+12 of 70 steps (17%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/T3.pdbqt
+    output: output/proteins_gpf/4lnx_noalter_T3.gpf
+    jobid: 64
+    wildcards: protein=4lnx_noalter, ligand=T3
+
+Finished job 54.
+13 of 70 steps (19%) done
+Finished job 69.
+14 of 70 steps (20%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/DHT.pdbqt
+    output: output/proteins_gpf/4lnx_noalter_DHT.gpf
+    jobid: 55
+    wildcards: protein=4lnx_noalter, ligand=DHT
+
+rule get_grid_center:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/4lnx_noalter_E2.gpf
+    jobid: 53
+    wildcards: protein=4lnx_noalter, ligand=E2
+
+Finished job 64.
+15 of 70 steps (21%) done
+Finished job 55.
+16 of 70 steps (23%) done
+Finished job 53.
+17 of 70 steps (24%) done
+Finished job 25.
+18 of 70 steps (26%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/T3.pdbqt
+    output: output/proteins_gpf/2h77_T3.gpf
+    jobid: 52
+    wildcards: protein=2h77, ligand=T3
+
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/DHT.pdbqt
+    output: output/proteins_gpf/2h77_DHT.gpf
+    jobid: 57
+    wildcards: protein=2h77, ligand=DHT
+
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/2h77_E2.gpf
+    jobid: 61
+    wildcards: protein=2h77, ligand=E2
+
+
+rule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/1-850.pdbqt
+    output: output/proteins_gpf/3ert_1-850.gpf
+    jobid: 62
+    wildcards: protein=3ert, ligand=1-850
+
+Finished job 52.
+19 of 70 steps (27%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/1-850.pdbqt
+    output: output/proteins_gpf/2pin_1-850.gpf
+    jobid: 63
+    wildcards: protein=2pin, ligand=1-850
+
+Finished job 57.
+20 of 70 steps (29%) done
+Finished job 61.
+21 of 70 steps (30%) done
+Finished job 62.
+22 of 70 steps (31%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/T3.pdbqt
+    output: output/proteins_gpf/3ert_T3.gpf
+    jobid: 60
+    wildcards: protein=3ert, ligand=T3
+
+Finished job 63.
+23 of 70 steps (33%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/T3.pdbqt
+    output: output/proteins_gpf/2pin_T3.gpf
+    jobid: 58
+    wildcards: protein=2pin, ligand=T3
+
+
+rule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/3ert_E2.gpf
+    jobid: 68
+    wildcards: protein=3ert, ligand=E2
+
+
+rule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DHT.pdbqt
+    output: output/proteins_gpf/3ert_DHT.gpf
+    jobid: 59
+    wildcards: protein=3ert, ligand=DHT
+
+Finished job 58.
+24 of 70 steps (34%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/E2.pdbqt
+    output: output/proteins_gpf/2pin_E2.gpf
+    jobid: 67
+    wildcards: protein=2pin, ligand=E2
+
+Finished job 60.
+25 of 70 steps (36%) done
+Finished job 68.
+26 of 70 steps (37%) done
+Finished job 59.
+27 of 70 steps (39%) done
+Finished job 67.
+28 of 70 steps (40%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DHT.pdbqt
+    output: output/proteins_gpf/2pin_DHT.gpf
+    jobid: 51
+    wildcards: protein=2pin, ligand=DHT
+
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2pin_1-850.gpf
+    output: output/proteins_gpf/2pin_1-850_center.txt
+    jobid: 43
+    wildcards: protein=2pin, ligand=1-850
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2am9_1-850.gpf
+    output: output/proteins_gpf/2am9_1-850_center.txt
+    jobid: 45
+    wildcards: protein=2am9, ligand=1-850
+
+rule extract_grid_center:
+    input: output/proteins_gpf/4lnx_noalter_T3.gpf
+    output: output/proteins_gpf/4lnx_noalter_T3_center.txt
+    jobid: 44
+    wildcards: protein=4lnx_noalter, ligand=T3
+
+Finished job 51.
+29 of 70 steps (41%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_1-850.gpf
+    output: output/proteins_gpf/2h77_1-850_center.txt
+    jobid: 36
+    wildcards: protein=2h77, ligand=1-850
+
+Finished job 43.
+30 of 70 steps (43%) done
+Finished job 45.
+31 of 70 steps (44%) done
+Finished job 44.
+32 of 70 steps (46%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2am9_T3.gpf
+    output: output/proteins_gpf/2am9_T3_center.txt
+    jobid: 46
+    wildcards: protein=2am9, ligand=T3
+
+
+rule extract_grid_center:
+    input: output/proteins_gpf/3ert_1-850.gpf
+    output: output/proteins_gpf/3ert_1-850_center.txt
+    jobid: 42
+    wildcards: protein=3ert, ligand=1-850
+
+rule extract_grid_center:
+    input: output/proteins_gpf/3ert_T3.gpf
+    output: output/proteins_gpf/3ert_T3_center.txt
+    jobid: 40
+    wildcards: protein=3ert, ligand=T3
+Finished job 36.
+
+33 of 70 steps (47%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2pin_T3.gpf
+    output: output/proteins_gpf/2pin_T3_center.txt
+    jobid: 38
+    wildcards: protein=2pin, ligand=T3
+
+Finished job 42.
+34 of 70 steps (49%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/4lnx_noalter_1-850.gpf
+    output: output/proteins_gpf/4lnx_noalter_1-850_center.txt
+    jobid: 27
+    wildcards: protein=4lnx_noalter, ligand=1-850
+
+Finished job 46.
+35 of 70 steps (50%) done
+Finished job 38.
+36 of 70 steps (51%) done
+Finished job 40.
+37 of 70 steps (53%) done
+Finished job 27.
+38 of 70 steps (54%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_T3.gpf
+    output: output/proteins_gpf/2h77_T3_center.txt
+    jobid: 31
+    wildcards: protein=2h77, ligand=T3
+
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2pin_E2.gpf
+    output: output/proteins_gpf/2pin_E2_center.txt
+    jobid: 47
+    wildcards: protein=2pin, ligand=E2
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2am9_E2.gpf
+    output: output/proteins_gpf/2am9_E2_center.txt
+    jobid: 49
+    wildcards: protein=2am9, ligand=E2
+
+rule extract_grid_center:
+    input: output/proteins_gpf/3ert_E2.gpf
+    output: output/proteins_gpf/3ert_E2_center.txt
+    jobid: 48
+    wildcards: protein=3ert, ligand=E2
+
+Finished job 31.
+39 of 70 steps (56%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_E2.gpf
+    output: output/proteins_gpf/2h77_E2_center.txt
+    jobid: 41
+    wildcards: protein=2h77, ligand=E2
+
+Finished job 47.
+40 of 70 steps (57%) done
+Finished job 49.
+41 of 70 steps (59%) done
+Finished job 48.
+42 of 70 steps (60%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/3ert_DHT.gpf
+    output: output/proteins_gpf/3ert_DHT_center.txt
+    jobid: 39
+    wildcards: protein=3ert, ligand=DHT
+
+rule extract_grid_center:
+    input: output/proteins_gpf/4lnx_noalter_E2.gpf
+    output: output/proteins_gpf/4lnx_noalter_E2_center.txt
+    jobid: 32
+    wildcards: protein=4lnx_noalter, ligand=E2
+
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2pin_DHT.gpf
+    output: output/proteins_gpf/2pin_DHT_center.txt
+    jobid: 28
+    wildcards: protein=2pin, ligand=DHT
+
+Finished job 41.
+43 of 70 steps (61%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/4lnx_noalter_DHT.gpf
+    output: output/proteins_gpf/4lnx_noalter_DHT_center.txt
+    jobid: 35
+    wildcards: protein=4lnx_noalter, ligand=DHT
+
+Finished job 39.
+44 of 70 steps (63%) done
+Finished job 32.
+45 of 70 steps (64%) done
+Finished job 28.
+46 of 70 steps (66%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_DHT.gpf
+    output: output/proteins_gpf/2h77_DHT_center.txt
+    jobid: 37
+    wildcards: protein=2h77, ligand=DHT
+
+Finished job 35.
+47 of 70 steps (67%) done
+Finished job 37.
+48 of 70 steps (69%) done
+
+rule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/1-850.pdbqt, output/proteins_gpf/2am9_1-850_center.txt
+    output: output/docking/2am9_1-850_out.pdbqt, output/docking/2am9_1-850_log.txt
+    jobid: 18
+    wildcards: protein=2am9, ligand=1-850
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2am9_DHT.gpf
+    output: output/proteins_gpf/2am9_DHT_center.txt
+    jobid: 34
+    wildcards: protein=2am9, ligand=DHT
+
+
+rule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/E2.pdbqt, output/proteins_gpf/2am9_E2_center.txt
+    output: output/docking/2am9_E2_out.pdbqt, output/docking/2am9_E2_log.txt
+    jobid: 24
+    wildcards: protein=2am9, ligand=E2
+
+rule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/T3.pdbqt, output/proteins_gpf/2am9_T3_center.txt
+    output: output/docking/2am9_T3_out.pdbqt, output/docking/2am9_T3_log.txt
+    jobid: 19
+    wildcards: protein=2am9, ligand=T3
+
+Finished job 34.
+49 of 70 steps (70%) done
+
+rule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DHT.pdbqt, output/proteins_gpf/2am9_DHT_center.txt
+    output: output/docking/2am9_DHT_out.pdbqt, output/docking/2am9_DHT_log.txt
+    jobid: 6
+    wildcards: protein=2am9, ligand=DHT
+
+Finished job 24.
+50 of 70 steps (71%) done
+
+rule dock:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/1-850.pdbqt, output/proteins_gpf/4lnx_noalter_1-850_center.txt
+    output: output/docking/4lnx_noalter_1-850_out.pdbqt, output/docking/4lnx_noalter_1-850_log.txt
+    jobid: 1
+    wildcards: protein=4lnx_noalter, ligand=1-850
+
+Finished job 6.
+51 of 70 steps (73%) done
+
+rule dock:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/T3.pdbqt, output/proteins_gpf/4lnx_noalter_T3_center.txt
+    output: output/docking/4lnx_noalter_T3_out.pdbqt, output/docking/4lnx_noalter_T3_log.txt
+    jobid: 17
+    wildcards: protein=4lnx_noalter, ligand=T3
+
+Finished job 19.
+52 of 70 steps (74%) done
+
+rule dock:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/E2.pdbqt, output/proteins_gpf/4lnx_noalter_E2_center.txt
+    output: output/docking/4lnx_noalter_E2_out.pdbqt, output/docking/4lnx_noalter_E2_log.txt
+    jobid: 5
+    wildcards: protein=4lnx_noalter, ligand=E2
+
+Finished job 5.
+53 of 70 steps (76%) done
+
+rule dock:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/DHT.pdbqt, output/proteins_gpf/4lnx_noalter_DHT_center.txt
+    output: output/docking/4lnx_noalter_DHT_out.pdbqt, output/docking/4lnx_noalter_DHT_log.txt
+    jobid: 7
+    wildcards: protein=4lnx_noalter, ligand=DHT
+
+Finished job 7.
+54 of 70 steps (77%) done
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/1-850.pdbqt, output/proteins_gpf/2h77_1-850_center.txt
+    output: output/docking/2h77_1-850_out.pdbqt, output/docking/2h77_1-850_log.txt
+    jobid: 8
+    wildcards: protein=2h77, ligand=1-850
+
+Error in rule dock:
+    jobid: 8
+    output: output/docking/2h77_1-850_out.pdbqt, output/docking/2h77_1-850_log.txt
+
+RuleException:
+CalledProcessError in line 87 of /data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py:
+Command ' set -euo pipefail;  
+        vina --receptor output/proteins_prep/2h77.pdbqt --ligand output/ligands_prep/1-850.pdbqt              --center_x $(cat output/proteins_gpf/2h77_1-850_center.txt | cut -d ' ' -f 1)              --center_y $(cat output/proteins_gpf/2h77_1-850_center.txt | cut -d ' ' -f 2)              --center_z $(cat output/proteins_gpf/2h77_1-850_center.txt | cut -d ' ' -f 3)              --size_x 40 --size_y 40 --size_z 40              --out output/docking/2h77_1-850_out.pdbqt --log output/docking/2h77_1-850_log.txt --exhaustiveness 8 ' returned non-zero exit status 1.
+  File "/data/karim_thesis/AutoDock-vina-snakemake-pipeline/Snakefile.py", line 87, in __rule_dock
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job dock since they might be corrupted:
+output/docking/2h77_1-850_log.txt
+Will exit after finishing currently running jobs.
+Finished job 18.
+55 of 70 steps (79%) done
+Will exit after finishing currently running jobs.
+Finished job 17.
+56 of 70 steps (80%) done
+Will exit after finishing currently running jobs.
+Finished job 1.
+57 of 70 steps (81%) done
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-10T181813.649805.snakemake.log

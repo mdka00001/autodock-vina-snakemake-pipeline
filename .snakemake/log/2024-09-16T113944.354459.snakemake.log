@@ -1,0 +1,84 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                       9
+extract_grid_center        7
+get_grid_center            6
+prepare_protein            1
+total                     24
+
+Select jobs to execute...
+Execute 4 jobs...
+
+[Mon Sep 16 11:39:44 2024]
+localrule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/3ert_DBDPEther_center.txt
+    output: output/docking/3ert_DBDPEther_out.pdbqt, output/docking/3ert_DBDPEther_log.txt
+    jobid: 12
+    reason: Missing output files: output/docking/3ert_DBDPEther_log.txt, output/docking/3ert_DBDPEther_out.pdbqt
+    wildcards: protein=3ert, ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+
+[Mon Sep 16 11:39:44 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/3ert_DBDPEthane.gpf
+    output: output/proteins_gpf/3ert_DBDPEthane_center.txt
+    jobid: 10
+    reason: Missing output files: output/proteins_gpf/3ert_DBDPEthane_center.txt
+    wildcards: protein=3ert, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+
+[Mon Sep 16 11:39:44 2024]
+localrule prepare_protein:
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    jobid: 2
+    reason: Updated input files: data/proteins/2am9.pdb
+    wildcards: protein=2am9
+    resources: tmpdir=/tmp
+
+
+[Mon Sep 16 11:39:44 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/2pin_TCPP.gpf
+    jobid: 27
+    reason: Missing output files: output/proteins_gpf/2pin_TCPP.gpf
+    wildcards: protein=2pin, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Mon Sep 16 11:39:44 2024]
+Error in rule dock:
+    jobid: 12
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/3ert_DBDPEther_center.txt
+    output: output/docking/3ert_DBDPEther_out.pdbqt, output/docking/3ert_DBDPEther_log.txt
+    shell:
+        
+        vina --receptor output/proteins_prep/3ert.pdbqt --ligand output/ligands_prep/DBDPEther.pdbqt              --center_x $(cat output/proteins_gpf/3ert_DBDPEther_center.txt | cut -d ' ' -f 1)              --center_y $(cat output/proteins_gpf/3ert_DBDPEther_center.txt | cut -d ' ' -f 2)              --center_z $(cat output/proteins_gpf/3ert_DBDPEther_center.txt | cut -d ' ' -f 3)              --size_x 40 --size_y 40 --size_z 40              --out output/docking/3ert_DBDPEther_out.pdbqt --log output/docking/3ert_DBDPEther_log.txt --exhaustiveness 8
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job dock since they might be corrupted:
+output/docking/3ert_DBDPEther_log.txt
+[Mon Sep 16 11:39:44 2024]
+Finished job 27.
+1 of 24 steps (4%) done
+[Mon Sep 16 11:39:44 2024]
+Finished job 10.
+2 of 24 steps (8%) done
+[Mon Sep 16 11:39:45 2024]
+Finished job 2.
+3 of 24 steps (12%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-16T113944.354459.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

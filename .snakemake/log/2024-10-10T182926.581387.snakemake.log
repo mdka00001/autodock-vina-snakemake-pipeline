@@ -1,0 +1,520 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	18	dock
+	18	extract_grid_center
+	18	get_grid_center
+	3	prepare_ligand
+	58
+
+rule prepare_ligand:
+    input: data/ligands/DBDPEther.sdf
+    output: output/ligands_prep/DBDPEther.pdbqt
+    jobid: 27
+    wildcards: ligand=DBDPEther
+
+
+rule prepare_ligand:
+    input: data/ligands/TCPP.sdf
+    output: output/ligands_prep/TCPP.pdbqt
+    jobid: 29
+    wildcards: ligand=TCPP
+
+
+rule prepare_ligand:
+    input: data/ligands/DBDPEthane.sdf
+    output: output/ligands_prep/DBDPEthane.pdbqt
+    jobid: 26
+    wildcards: ligand=DBDPEthane
+
+Finished job 27.
+1 of 58 steps (2%) done
+Finished job 26.
+2 of 58 steps (3%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/2am9_DBDPEthane.gpf
+    jobid: 59
+    wildcards: protein=2am9, ligand=DBDPEthane
+
+
+rule get_grid_center:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/4lnx_noalter_DBDPEthane.gpf
+    jobid: 57
+    wildcards: protein=4lnx_noalter, ligand=DBDPEthane
+
+rule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/2am9_DBDPEther.gpf
+    jobid: 50
+    wildcards: protein=2am9, ligand=DBDPEther
+
+Finished job 29.
+3 of 58 steps (5%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/2am9_TCPP.gpf
+    jobid: 61
+    wildcards: protein=2am9, ligand=TCPP
+
+Finished job 59.
+4 of 58 steps (7%) done
+Finished job 57.
+5 of 58 steps (9%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/4lnx_noalter_TCPP.gpf
+    jobid: 54
+    wildcards: protein=4lnx_noalter, ligand=TCPP
+
+rule get_grid_center:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/4lnx_noalter_DBDPEther.gpf
+    jobid: 47
+    wildcards: protein=4lnx_noalter, ligand=DBDPEther
+
+Finished job 61.
+6 of 58 steps (10%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/2h77_TCPP.gpf
+    jobid: 49
+    wildcards: protein=2h77, ligand=TCPP
+
+Finished job 50.
+7 of 58 steps (12%) done
+Finished job 47.
+8 of 58 steps (14%) done
+Finished job 54.
+9 of 58 steps (16%) done
+Finished job 49.
+10 of 58 steps (17%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/2h77_DBDPEthane.gpf
+    jobid: 55
+    wildcards: protein=2h77, ligand=DBDPEthane
+
+
+rule get_grid_center:
+    input: output/proteins_prep/1nax.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/1nax_DBDPEthane.gpf
+    jobid: 58
+    wildcards: protein=1nax, ligand=DBDPEthane
+
+rule get_grid_center:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/2h77_DBDPEther.gpf
+    jobid: 62
+    wildcards: protein=2h77, ligand=DBDPEther
+
+Finished job 58.
+11 of 58 steps (19%) done
+Finished job 62.
+12 of 58 steps (21%) done
+Finished job 55.
+13 of 58 steps (22%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/1nax.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/1nax_TCPP.gpf
+    jobid: 52
+    wildcards: protein=1nax, ligand=TCPP
+
+
+rule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/3ert_TCPP.gpf
+    jobid: 56
+    wildcards: protein=3ert, ligand=TCPP
+
+rule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/3ert_DBDPEthane.gpf
+    jobid: 46
+    wildcards: protein=3ert, ligand=DBDPEthane
+
+rule get_grid_center:
+    input: output/proteins_prep/1nax.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/1nax_DBDPEther.gpf
+    jobid: 60
+    wildcards: protein=1nax, ligand=DBDPEther
+
+Finished job 52.
+14 of 58 steps (24%) done
+Finished job 46.
+15 of 58 steps (26%) done
+Finished job 56.
+16 of 58 steps (28%) done
+Finished job 60.
+17 of 58 steps (29%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/3ert_DBDPEther.gpf
+    jobid: 51
+    wildcards: protein=3ert, ligand=DBDPEther
+
+
+rule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/2pin_DBDPEther.gpf
+    jobid: 53
+    wildcards: protein=2pin, ligand=DBDPEther
+
+rule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/2pin_DBDPEthane.gpf
+    jobid: 63
+    wildcards: protein=2pin, ligand=DBDPEthane
+
+Finished job 51.
+18 of 58 steps (31%) done
+Finished job 53.
+19 of 58 steps (33%) done
+Finished job 63.
+20 of 58 steps (34%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/2pin_TCPP.gpf
+    jobid: 48
+    wildcards: protein=2pin, ligand=TCPP
+
+
+rule extract_grid_center:
+    input: output/proteins_gpf/3ert_TCPP.gpf
+    output: output/proteins_gpf/3ert_TCPP_center.txt
+    jobid: 38
+    wildcards: protein=3ert, ligand=TCPP
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2am9_TCPP.gpf
+    output: output/proteins_gpf/2am9_TCPP_center.txt
+    jobid: 43
+    wildcards: protein=2am9, ligand=TCPP
+
+Finished job 48.
+21 of 58 steps (36%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_TCPP.gpf
+    output: output/proteins_gpf/2h77_TCPP_center.txt
+    jobid: 31
+    wildcards: protein=2h77, ligand=TCPP
+
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2pin_TCPP.gpf
+    output: output/proteins_gpf/2pin_TCPP_center.txt
+    jobid: 30
+    wildcards: protein=2pin, ligand=TCPP
+
+Finished job 43.
+22 of 58 steps (38%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/4lnx_noalter_TCPP.gpf
+    output: output/proteins_gpf/4lnx_noalter_TCPP_center.txt
+    jobid: 36
+    wildcards: protein=4lnx_noalter, ligand=TCPP
+
+Finished job 38.
+23 of 58 steps (40%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/1nax_TCPP.gpf
+    output: output/proteins_gpf/1nax_TCPP_center.txt
+    jobid: 34
+    wildcards: protein=1nax, ligand=TCPP
+
+Finished job 31.
+24 of 58 steps (41%) done
+Finished job 30.
+25 of 58 steps (43%) done
+Finished job 36.
+26 of 58 steps (45%) done
+Finished job 34.
+27 of 58 steps (47%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2pin_DBDPEthane.gpf
+    output: output/proteins_gpf/2pin_DBDPEthane_center.txt
+    jobid: 45
+    wildcards: protein=2pin, ligand=DBDPEthane
+
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_DBDPEthane.gpf
+    output: output/proteins_gpf/2h77_DBDPEthane_center.txt
+    jobid: 37
+    wildcards: protein=2h77, ligand=DBDPEthane
+
+rule extract_grid_center:
+    input: output/proteins_gpf/3ert_DBDPEthane.gpf
+    output: output/proteins_gpf/3ert_DBDPEthane_center.txt
+    jobid: 25
+    wildcards: protein=3ert, ligand=DBDPEthane
+
+Finished job 37.
+28 of 58 steps (48%) done
+Finished job 25.
+29 of 58 steps (50%) done
+Finished job 45.
+30 of 58 steps (52%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/4lnx_noalter_DBDPEthane.gpf
+    output: output/proteins_gpf/4lnx_noalter_DBDPEthane_center.txt
+    jobid: 39
+    wildcards: protein=4lnx_noalter, ligand=DBDPEthane
+
+
+rule extract_grid_center:
+    input: output/proteins_gpf/3ert_DBDPEther.gpf
+    output: output/proteins_gpf/3ert_DBDPEther_center.txt
+    jobid: 33
+    wildcards: protein=3ert, ligand=DBDPEther
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2am9_DBDPEthane.gpf
+    output: output/proteins_gpf/2am9_DBDPEthane_center.txt
+    jobid: 41
+    wildcards: protein=2am9, ligand=DBDPEthane
+
+rule extract_grid_center:
+    input: output/proteins_gpf/1nax_DBDPEthane.gpf
+    output: output/proteins_gpf/1nax_DBDPEthane_center.txt
+    jobid: 40
+    wildcards: protein=1nax, ligand=DBDPEthane
+
+Finished job 39.
+31 of 58 steps (53%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2h77_DBDPEther.gpf
+    output: output/proteins_gpf/2h77_DBDPEther_center.txt
+    jobid: 44
+    wildcards: protein=2h77, ligand=DBDPEther
+
+Finished job 41.
+32 of 58 steps (55%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/1nax_DBDPEther.gpf
+    output: output/proteins_gpf/1nax_DBDPEther_center.txt
+    jobid: 42
+    wildcards: protein=1nax, ligand=DBDPEther
+
+Finished job 33.
+33 of 58 steps (57%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/4lnx_noalter_DBDPEther.gpf
+    output: output/proteins_gpf/4lnx_noalter_DBDPEther_center.txt
+    jobid: 28
+    wildcards: protein=4lnx_noalter, ligand=DBDPEther
+
+Finished job 40.
+34 of 58 steps (59%) done
+Finished job 28.
+35 of 58 steps (60%) done
+Finished job 44.
+36 of 58 steps (62%) done
+Finished job 42.
+37 of 58 steps (64%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2pin_DBDPEther.gpf
+    output: output/proteins_gpf/2pin_DBDPEther_center.txt
+    jobid: 35
+    wildcards: protein=2pin, ligand=DBDPEther
+
+
+rule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/2am9_TCPP_center.txt
+    output: output/docking/2am9_TCPP_out.pdbqt, output/docking/2am9_TCPP_log.txt
+    jobid: 19
+    wildcards: protein=2am9, ligand=TCPP
+
+rule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/2am9_DBDPEthane_center.txt
+    output: output/docking/2am9_DBDPEthane_out.pdbqt, output/docking/2am9_DBDPEthane_log.txt
+    jobid: 16
+    wildcards: protein=2am9, ligand=DBDPEthane
+
+Finished job 35.
+38 of 58 steps (66%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/2am9_DBDPEther.gpf
+    output: output/proteins_gpf/2am9_DBDPEther_center.txt
+    jobid: 32
+    wildcards: protein=2am9, ligand=DBDPEther
+
+
+rule dock:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/4lnx_noalter_TCPP_center.txt
+    output: output/docking/4lnx_noalter_TCPP_out.pdbqt, output/docking/4lnx_noalter_TCPP_log.txt
+    jobid: 10
+    wildcards: protein=4lnx_noalter, ligand=TCPP
+
+Finished job 32.
+39 of 58 steps (67%) done
+
+rule dock:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/2am9_DBDPEther_center.txt
+    output: output/docking/2am9_DBDPEther_out.pdbqt, output/docking/2am9_DBDPEther_log.txt
+    jobid: 6
+    wildcards: protein=2am9, ligand=DBDPEther
+
+Finished job 16.
+40 of 58 steps (69%) done
+
+rule dock:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/4lnx_noalter_DBDPEthane_center.txt
+    output: output/docking/4lnx_noalter_DBDPEthane_out.pdbqt, output/docking/4lnx_noalter_DBDPEthane_log.txt
+    jobid: 14
+    wildcards: protein=4lnx_noalter, ligand=DBDPEthane
+
+Finished job 6.
+41 of 58 steps (71%) done
+
+rule dock:
+    input: output/proteins_prep/4lnx_noalter.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/4lnx_noalter_DBDPEther_center.txt
+    output: output/docking/4lnx_noalter_DBDPEther_out.pdbqt, output/docking/4lnx_noalter_DBDPEther_log.txt
+    jobid: 3
+    wildcards: protein=4lnx_noalter, ligand=DBDPEther
+
+Finished job 10.
+42 of 58 steps (72%) done
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/2h77_TCPP_center.txt
+    output: output/docking/2h77_TCPP_out.pdbqt, output/docking/2h77_TCPP_log.txt
+    jobid: 5
+    wildcards: protein=2h77, ligand=TCPP
+
+Finished job 19.
+43 of 58 steps (74%) done
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/2h77_DBDPEthane_center.txt
+    output: output/docking/2h77_DBDPEthane_out.pdbqt, output/docking/2h77_DBDPEthane_log.txt
+    jobid: 11
+    wildcards: protein=2h77, ligand=DBDPEthane
+
+Finished job 11.
+44 of 58 steps (76%) done
+
+rule dock:
+    input: output/proteins_prep/2h77.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/2h77_DBDPEther_center.txt
+    output: output/docking/2h77_DBDPEther_out.pdbqt, output/docking/2h77_DBDPEther_log.txt
+    jobid: 22
+    wildcards: protein=2h77, ligand=DBDPEther
+
+Finished job 14.
+45 of 58 steps (78%) done
+
+rule dock:
+    input: output/proteins_prep/1nax.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/1nax_TCPP_center.txt
+    output: output/docking/1nax_TCPP_out.pdbqt, output/docking/1nax_TCPP_log.txt
+    jobid: 8
+    wildcards: protein=1nax, ligand=TCPP
+
+Finished job 5.
+46 of 58 steps (79%) done
+
+rule dock:
+    input: output/proteins_prep/1nax.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/1nax_DBDPEthane_center.txt
+    output: output/docking/1nax_DBDPEthane_out.pdbqt, output/docking/1nax_DBDPEthane_log.txt
+    jobid: 15
+    wildcards: protein=1nax, ligand=DBDPEthane
+
+Finished job 22.
+47 of 58 steps (81%) done
+
+rule dock:
+    input: output/proteins_prep/1nax.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/1nax_DBDPEther_center.txt
+    output: output/docking/1nax_DBDPEther_out.pdbqt, output/docking/1nax_DBDPEther_log.txt
+    jobid: 18
+    wildcards: protein=1nax, ligand=DBDPEther
+
+Finished job 8.
+48 of 58 steps (83%) done
+
+rule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/3ert_TCPP_center.txt
+    output: output/docking/3ert_TCPP_out.pdbqt, output/docking/3ert_TCPP_log.txt
+    jobid: 13
+    wildcards: protein=3ert, ligand=TCPP
+
+Finished job 3.
+49 of 58 steps (84%) done
+
+rule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/3ert_DBDPEthane_center.txt
+    output: output/docking/3ert_DBDPEthane_out.pdbqt, output/docking/3ert_DBDPEthane_log.txt
+    jobid: 2
+    wildcards: protein=3ert, ligand=DBDPEthane
+
+Finished job 15.
+50 of 58 steps (86%) done
+
+rule dock:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/3ert_DBDPEther_center.txt
+    output: output/docking/3ert_DBDPEther_out.pdbqt, output/docking/3ert_DBDPEther_log.txt
+    jobid: 7
+    wildcards: protein=3ert, ligand=DBDPEther
+
+Finished job 18.
+51 of 58 steps (88%) done
+
+rule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/2pin_TCPP_center.txt
+    output: output/docking/2pin_TCPP_out.pdbqt, output/docking/2pin_TCPP_log.txt
+    jobid: 4
+    wildcards: protein=2pin, ligand=TCPP
+
+Finished job 7.
+52 of 58 steps (90%) done
+
+rule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/2pin_DBDPEthane_center.txt
+    output: output/docking/2pin_DBDPEthane_out.pdbqt, output/docking/2pin_DBDPEthane_log.txt
+    jobid: 24
+    wildcards: protein=2pin, ligand=DBDPEthane
+
+Finished job 2.
+53 of 58 steps (91%) done
+
+rule dock:
+    input: output/proteins_prep/2pin.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/2pin_DBDPEther_center.txt
+    output: output/docking/2pin_DBDPEther_out.pdbqt, output/docking/2pin_DBDPEther_log.txt
+    jobid: 9
+    wildcards: protein=2pin, ligand=DBDPEther
+
+Finished job 13.
+54 of 58 steps (93%) done
+Finished job 4.
+55 of 58 steps (95%) done
+Finished job 24.
+56 of 58 steps (97%) done
+Finished job 9.
+57 of 58 steps (98%) done
+
+localrule all:
+    input: output/proteins_prep/1nax.pdbqt, output/proteins_prep/3ert.pdbqt, output/proteins_prep/4lnx_noalter.pdbqt, output/proteins_prep/2am9.pdbqt, output/proteins_prep/2h77.pdbqt, output/proteins_prep/2pin.pdbqt, output/docking/1nax_TCPP_log.txt, output/docking/1nax_DBDPEthane_log.txt, output/docking/1nax_DBDPEther_log.txt, output/docking/3ert_TCPP_log.txt, output/docking/3ert_DBDPEthane_log.txt, output/docking/3ert_DBDPEther_log.txt, output/docking/4lnx_noalter_TCPP_log.txt, output/docking/4lnx_noalter_DBDPEthane_log.txt, output/docking/4lnx_noalter_DBDPEther_log.txt, output/docking/2am9_TCPP_log.txt, output/docking/2am9_DBDPEthane_log.txt, output/docking/2am9_DBDPEther_log.txt, output/docking/2h77_TCPP_log.txt, output/docking/2h77_DBDPEthane_log.txt, output/docking/2h77_DBDPEther_log.txt, output/docking/2pin_TCPP_log.txt, output/docking/2pin_DBDPEthane_log.txt, output/docking/2pin_DBDPEther_log.txt, output/docking/1nax_TCPP_out.pdbqt, output/docking/1nax_DBDPEthane_out.pdbqt, output/docking/1nax_DBDPEther_out.pdbqt, output/docking/3ert_TCPP_out.pdbqt, output/docking/3ert_DBDPEthane_out.pdbqt, output/docking/3ert_DBDPEther_out.pdbqt, output/docking/4lnx_noalter_TCPP_out.pdbqt, output/docking/4lnx_noalter_DBDPEthane_out.pdbqt, output/docking/4lnx_noalter_DBDPEther_out.pdbqt, output/docking/2am9_TCPP_out.pdbqt, output/docking/2am9_DBDPEthane_out.pdbqt, output/docking/2am9_DBDPEther_out.pdbqt, output/docking/2h77_TCPP_out.pdbqt, output/docking/2h77_DBDPEthane_out.pdbqt, output/docking/2h77_DBDPEther_out.pdbqt, output/docking/2pin_TCPP_out.pdbqt, output/docking/2pin_DBDPEthane_out.pdbqt, output/docking/2pin_DBDPEther_out.pdbqt
+    jobid: 0
+
+Finished job 0.
+58 of 58 steps (100%) done

@@ -1,0 +1,211 @@
+host: sysGen-devCube-0819-8700-01
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+dock                      12
+extract_grid_center       12
+get_grid_center           12
+prepare_ligand             3
+prepare_protein            4
+total                     44
+
+Select jobs to execute...
+Execute 4 jobs...
+
+[Fri Sep 13 12:17:21 2024]
+localrule prepare_ligand:
+    input: data/ligands/DBDPEther.sdf
+    output: output/ligands_prep/DBDPEther.pdbqt
+    jobid: 14
+    reason: Missing output files: output/ligands_prep/DBDPEther.pdbqt
+    wildcards: ligand=DBDPEther
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 13 12:17:21 2024]
+localrule prepare_ligand:
+    input: data/ligands/TCPP.sdf
+    output: output/ligands_prep/TCPP.pdbqt
+    jobid: 6
+    reason: Missing output files: output/ligands_prep/TCPP.pdbqt
+    wildcards: ligand=TCPP
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 13 12:17:21 2024]
+localrule prepare_protein:
+    input: data/proteins/2pin.pdb
+    output: output/proteins_prep/2pin.pdbqt
+    jobid: 4
+    reason: Missing output files: output/proteins_prep/2pin.pdbqt
+    wildcards: protein=2pin
+    resources: tmpdir=/tmp
+
+
+[Fri Sep 13 12:17:21 2024]
+localrule prepare_protein:
+    input: data/proteins/3ert.pdb
+    output: output/proteins_prep/3ert.pdbqt
+    jobid: 1
+    reason: Missing output files: output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:22 2024]
+Finished job 14.
+1 of 44 steps (2%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 12:17:22 2024]
+localrule prepare_protein:
+    input: data/proteins/4lnx.pdb
+    output: output/proteins_prep/4lnx.pdbqt
+    jobid: 2
+    reason: Missing output files: output/proteins_prep/4lnx.pdbqt
+    wildcards: protein=4lnx
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:22 2024]
+Finished job 6.
+2 of 44 steps (5%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 12:17:22 2024]
+localrule prepare_ligand:
+    input: data/ligands/DBDPEthane.sdf
+    output: output/ligands_prep/DBDPEthane.pdbqt
+    jobid: 10
+    reason: Missing output files: output/ligands_prep/DBDPEthane.pdbqt
+    wildcards: ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:22 2024]
+Finished job 10.
+3 of 44 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 12:17:22 2024]
+localrule prepare_protein:
+    input: data/proteins/2am9.pdb
+    output: output/proteins_prep/2am9.pdbqt
+    jobid: 3
+    reason: Missing output files: output/proteins_prep/2am9.pdbqt
+    wildcards: protein=2am9
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:22 2024]
+Finished job 1.
+4 of 44 steps (9%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 12:17:22 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/3ert_TCPP.gpf
+    jobid: 8
+    reason: Missing output files: output/proteins_gpf/3ert_TCPP.gpf; Input files updated by another job: output/ligands_prep/TCPP.pdbqt, output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:23 2024]
+Finished job 8.
+5 of 44 steps (11%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 12:17:23 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/3ert.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/3ert_DBDPEthane.gpf
+    jobid: 12
+    reason: Missing output files: output/proteins_gpf/3ert_DBDPEthane.gpf; Input files updated by another job: output/ligands_prep/DBDPEthane.pdbqt, output/proteins_prep/3ert.pdbqt
+    wildcards: protein=3ert, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:23 2024]
+Finished job 2.
+6 of 44 steps (14%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 12:17:23 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/4lnx_TCPP.gpf
+    jobid: 19
+    reason: Missing output files: output/proteins_gpf/4lnx_TCPP.gpf; Input files updated by another job: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/TCPP.pdbqt
+    wildcards: protein=4lnx, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:23 2024]
+Finished job 12.
+7 of 44 steps (16%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 12:17:23 2024]
+localrule extract_grid_center:
+    input: output/proteins_gpf/3ert_TCPP.gpf
+    output: output/proteins_gpf/3ert_TCPP_center.txt
+    jobid: 7
+    reason: Missing output files: output/proteins_gpf/3ert_TCPP_center.txt; Input files updated by another job: output/proteins_gpf/3ert_TCPP.gpf
+    wildcards: protein=3ert, ligand=TCPP
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:23 2024]
+Finished job 3.
+8 of 44 steps (18%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Sep 13 12:17:23 2024]
+localrule get_grid_center:
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/2am9_DBDPEthane.gpf
+    jobid: 31
+    reason: Missing output files: output/proteins_gpf/2am9_DBDPEthane.gpf; Input files updated by another job: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    wildcards: protein=2am9, ligand=DBDPEthane
+    resources: tmpdir=/tmp
+
+[Fri Sep 13 12:17:23 2024]
+Error in rule get_grid_center:
+    jobid: 19
+    input: output/proteins_prep/4lnx.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/4lnx_TCPP.gpf
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_gpf4.py -l output/ligands_prep/TCPP.pdbqt -r output/proteins_prep/4lnx.pdbqt -o output/proteins_gpf/4lnx_TCPP.gpf
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 13 12:17:23 2024]
+Error in rule get_grid_center:
+    jobid: 31
+    input: output/proteins_prep/2am9.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/2am9_DBDPEthane.gpf
+    shell:
+        
+        FlipbookApp/mfb/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_gpf4.py -l output/ligands_prep/DBDPEthane.pdbqt -r output/proteins_prep/2am9.pdbqt -o output/proteins_gpf/2am9_DBDPEthane.gpf
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Sep 13 12:17:23 2024]
+Finished job 7.
+9 of 44 steps (20%) done
+[Fri Sep 13 12:17:23 2024]
+Finished job 4.
+10 of 44 steps (23%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-13T121721.860047.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

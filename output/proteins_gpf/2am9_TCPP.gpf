@@ -1,0 +1,30 @@
+receptor 2am9.pdbqt                  # macromolecule
+gridfld 2am9.maps.fld                # grid_data_file
+npts 40 40 40                        # num.grid points in xyz
+spacing 0.375                        # spacing(A)
+gridcenter 0.326 -0.975 0.2125       # xyz-coordinates or auto
+types CP                             # atom type names
+smooth 0.5                           # store minimum energy w/in rad(A)
+map 2am9.C.map                       # atom-specific affinity map
+nbp_r_eps  4.00 0.0222750 12  6   # C-C lj
+nbp_r_eps  3.75 0.0230026 12  6   # C-N lj
+nbp_r_eps  3.60 0.0257202 12  6   # C-O lj
+nbp_r_eps  4.00 0.0257202 12  6   # C-S lj
+nbp_r_eps  3.00 0.0081378 12  6   # C-H lj
+nbp_r_eps  3.00 0.0081378 12  6   # C-H lj
+nbp_r_eps  3.00 0.0081378 12  6   # C-H lj
+sol_par  12.77 0.6844    # C atomic fragmental volume, solvation parameters
+constant  0.000      # C grid map constant energy
+map 2am9.P.map                       # atom-specific affinity map
+nbp_r_eps  4.10 0.0257202 12  6   # P-C lj
+nbp_r_eps  3.85 0.0265667 12  6   # P-N lj
+nbp_r_eps  3.70 0.0297000 12  6   # P-O lj
+nbp_r_eps  4.10 0.0297000 12  6   # P-S lj
+nbp_r_eps  3.10 0.0093852 12  6   # P-H lj
+nbp_r_eps  3.10 0.0093852 12  6   # P-H lj
+nbp_r_eps  3.10 0.0093852 12  6   # P-H lj
+sol_par  0.000 0.000    #P atomic fragmental volume, solvation parameters
+constant  0.000          #P grid map constant energy
+elecmap 2am9.e.map                   # electrostatic potential map
+dielectric -0.1146                   # <0, distance-dep.diel;>0, constant
+#

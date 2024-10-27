@@ -18,7 +18,7 @@ WARNING: at low exhaustiveness, it may be impossible to utilize all CPUs
 Reading input ... done.
 Setting up the scoring function ... done.
 Analyzing the binding site ... done.
-Using random seed: -1950143213
+Using random seed: -1502702988
 Performing search ... done.
 Refining results ... done.
 
@@ -26,12 +26,12 @@ mode |   affinity | dist from best mode
      | (kcal/mol) | rmsd l.b.| rmsd u.b.
 -----+------------+----------+----------
    1         -7.3      0.000      0.000
-   2         -7.2      5.480     11.438
-   3         -7.1      4.852      6.383
-   4         -7.0      5.917     11.560
-   5         -7.0      6.279     11.722
-   6         -7.0      8.743     13.051
-   7         -7.0     11.050     17.834
-   8         -6.8      5.054     10.973
-   9         -6.8     16.438     17.959
+   2         -7.0      3.303      3.723
+   3         -7.0      5.840      8.878
+   4         -6.9      6.957     12.927
+   5         -6.8      4.896      7.664
+   6         -6.8      1.187      1.556
+   7         -6.8      7.670     13.753
+   8         -6.7      9.105     14.696
+   9         -6.7      4.988      7.038
 Writing output ... done.

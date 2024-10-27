@@ -1,0 +1,107 @@
+Building DAG of jobs...
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	3	dock
+	3	extract_grid_center
+	3	get_grid_center
+	1	prepare_protein
+	11
+
+rule prepare_protein:
+    input: data/proteins/AF-P10827-F1-model_v4-156-370.pdb
+    output: output/proteins_prep/AF-P10827-F1-model_v4-156-370.pdbqt
+    jobid: 21
+    wildcards: protein=AF-P10827-F1-model_v4-156-370
+
+Finished job 21.
+1 of 11 steps (9%) done
+
+rule get_grid_center:
+    input: output/proteins_prep/AF-P10827-F1-model_v4-156-370.pdbqt, output/ligands_prep/DBDPEthane.pdbqt
+    output: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_DBDPEthane.gpf
+    jobid: 82
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=DBDPEthane
+
+
+rule get_grid_center:
+    input: output/proteins_prep/AF-P10827-F1-model_v4-156-370.pdbqt, output/ligands_prep/TCPP.pdbqt
+    output: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_TCPP.gpf
+    jobid: 69
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=TCPP
+
+
+rule get_grid_center:
+    input: output/proteins_prep/AF-P10827-F1-model_v4-156-370.pdbqt, output/ligands_prep/DBDPEther.pdbqt
+    output: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_DBDPEther.gpf
+    jobid: 60
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=DBDPEther
+
+Finished job 82.
+2 of 11 steps (18%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_DBDPEthane.gpf
+    output: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_DBDPEthane_center.txt
+    jobid: 58
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=DBDPEthane
+
+Finished job 60.
+3 of 11 steps (27%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_DBDPEther.gpf
+    output: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_DBDPEther_center.txt
+    jobid: 34
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=DBDPEther
+
+Finished job 69.
+4 of 11 steps (36%) done
+
+rule extract_grid_center:
+    input: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_TCPP.gpf
+    output: output/proteins_gpf/AF-P10827-F1-model_v4-156-370_TCPP_center.txt
+    jobid: 45
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=TCPP
+
+Finished job 34.
+5 of 11 steps (45%) done
+Finished job 45.
+6 of 11 steps (55%) done
+
+rule dock:
+    input: output/proteins_prep/AF-P10827-F1-model_v4-156-370.pdbqt, output/ligands_prep/DBDPEther.pdbqt, output/proteins_gpf/AF-P10827-F1-model_v4-156-370_DBDPEther_center.txt
+    output: output/docking/AF-P10827-F1-model_v4-156-370_DBDPEther_out.pdbqt, output/docking/AF-P10827-F1-model_v4-156-370_DBDPEther_log.txt
+    jobid: 1
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=DBDPEther
+
+rule dock:
+    input: output/proteins_prep/AF-P10827-F1-model_v4-156-370.pdbqt, output/ligands_prep/TCPP.pdbqt, output/proteins_gpf/AF-P10827-F1-model_v4-156-370_TCPP_center.txt
+    output: output/docking/AF-P10827-F1-model_v4-156-370_TCPP_out.pdbqt, output/docking/AF-P10827-F1-model_v4-156-370_TCPP_log.txt
+    jobid: 10
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=TCPP
+
+Finished job 58.
+7 of 11 steps (64%) done
+
+rule dock:
+    input: output/proteins_prep/AF-P10827-F1-model_v4-156-370.pdbqt, output/ligands_prep/DBDPEthane.pdbqt, output/proteins_gpf/AF-P10827-F1-model_v4-156-370_DBDPEthane_center.txt
+    output: output/docking/AF-P10827-F1-model_v4-156-370_DBDPEthane_out.pdbqt, output/docking/AF-P10827-F1-model_v4-156-370_DBDPEthane_log.txt
+    jobid: 28
+    wildcards: protein=AF-P10827-F1-model_v4-156-370, ligand=DBDPEthane
+
+Finished job 1.
+8 of 11 steps (73%) done
+Finished job 28.
+9 of 11 steps (82%) done
+Finished job 10.
+10 of 11 steps (91%) done
+
+localrule all:
+    input: output/proteins_prep/1nax.pdbqt, output/proteins_prep/3ert.pdbqt, output/proteins_prep/AF-P10827-F1-model_v4-156-370.pdbqt, output/proteins_prep/4lnx_noalter.pdbqt, output/proteins_prep/AF-P10828-F1-model_v4_216-end.pdbqt, output/proteins_prep/2am9.pdbqt, output/proteins_prep/2h77.pdbqt, output/proteins_prep/2pin.pdbqt, output/docking/1nax_TCPP_log.txt, output/docking/1nax_DBDPEthane_log.txt, output/docking/1nax_DBDPEther_log.txt, output/docking/3ert_TCPP_log.txt, output/docking/3ert_DBDPEthane_log.txt, output/docking/3ert_DBDPEther_log.txt, output/docking/AF-P10827-F1-model_v4-156-370_TCPP_log.txt, output/docking/AF-P10827-F1-model_v4-156-370_DBDPEthane_log.txt, output/docking/AF-P10827-F1-model_v4-156-370_DBDPEther_log.txt, output/docking/4lnx_noalter_TCPP_log.txt, output/docking/4lnx_noalter_DBDPEthane_log.txt, output/docking/4lnx_noalter_DBDPEther_log.txt, output/docking/AF-P10828-F1-model_v4_216-end_TCPP_log.txt, output/docking/AF-P10828-F1-model_v4_216-end_DBDPEthane_log.txt, output/docking/AF-P10828-F1-model_v4_216-end_DBDPEther_log.txt, output/docking/2am9_TCPP_log.txt, output/docking/2am9_DBDPEthane_log.txt, output/docking/2am9_DBDPEther_log.txt, output/docking/2h77_TCPP_log.txt, output/docking/2h77_DBDPEthane_log.txt, output/docking/2h77_DBDPEther_log.txt, output/docking/2pin_TCPP_log.txt, output/docking/2pin_DBDPEthane_log.txt, output/docking/2pin_DBDPEther_log.txt, output/docking/1nax_TCPP_out.pdbqt, output/docking/1nax_DBDPEthane_out.pdbqt, output/docking/1nax_DBDPEther_out.pdbqt, output/docking/3ert_TCPP_out.pdbqt, output/docking/3ert_DBDPEthane_out.pdbqt, output/docking/3ert_DBDPEther_out.pdbqt, output/docking/AF-P10827-F1-model_v4-156-370_TCPP_out.pdbqt, output/docking/AF-P10827-F1-model_v4-156-370_DBDPEthane_out.pdbqt, output/docking/AF-P10827-F1-model_v4-156-370_DBDPEther_out.pdbqt, output/docking/4lnx_noalter_TCPP_out.pdbqt, output/docking/4lnx_noalter_DBDPEthane_out.pdbqt, output/docking/4lnx_noalter_DBDPEther_out.pdbqt, output/docking/AF-P10828-F1-model_v4_216-end_TCPP_out.pdbqt, output/docking/AF-P10828-F1-model_v4_216-end_DBDPEthane_out.pdbqt, output/docking/AF-P10828-F1-model_v4_216-end_DBDPEther_out.pdbqt, output/docking/2am9_TCPP_out.pdbqt, output/docking/2am9_DBDPEthane_out.pdbqt, output/docking/2am9_DBDPEther_out.pdbqt, output/docking/2h77_TCPP_out.pdbqt, output/docking/2h77_DBDPEthane_out.pdbqt, output/docking/2h77_DBDPEther_out.pdbqt, output/docking/2pin_TCPP_out.pdbqt, output/docking/2pin_DBDPEthane_out.pdbqt, output/docking/2pin_DBDPEther_out.pdbqt
+    jobid: 0
+
+Finished job 0.
+11 of 11 steps (100%) done
